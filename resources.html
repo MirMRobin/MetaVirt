@@ -42,7 +42,8 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between">
                 <a href="index.html" class="flex items-center gap-3">
-                    <img src="metavirt-logo.png" alt="MetaVirt" class="h-10 w-auto">
+                    <!-- FIXED: Use the same logo URL as your index.html -->
+                    <img src="https://kimi-web-img.moonshot.cn/img/metavirt-logo.png" alt="MetaVirt" class="h-10 w-auto">
                     <div>
                         <h1 class="font-display font-bold text-2xl tracking-tight text-white">MetaVirt</h1>
                         <p class="text-xs text-red-500 tracking-widest uppercase">Enterprise-grade Private Cloud</p>
@@ -56,13 +57,14 @@
                     <a href="about.html" class="text-sm text-gray-300 hover:text-white transition-colors">About</a>
                     <a href="contact.html" class="text-sm text-gray-300 hover:text-white transition-colors">Contact</a>
                     
-                    <div class="dropdown relative">
-                        <button class="text-sm text-white font-medium border-b-2 border-red-600 flex items-center gap-1">
+                    <!-- FIXED: Made Resources a clickable link with dropdown -->
+                    <div class="dropdown relative group">
+                        <a href="resources.html" class="text-sm text-white font-medium border-b-2 border-red-600 flex items-center gap-1 py-1">
                             Resources
                             <i data-lucide="chevron-down" class="w-4 h-4"></i>
-                        </button>
+                        </a>
                         <div class="dropdown-menu absolute top-full left-0 mt-2 w-64 glass rounded-xl p-4 space-y-3">
-                            <a href="resources.html" class="block text-sm text-white font-medium">All Resources</a>
+                            <a href="resources.html" class="block text-sm text-white font-medium border-l-2 border-red-500 pl-2">All Resources</a>
                             <a href="resources.html#documentation" class="block text-sm text-gray-300 hover:text-white transition-colors">Product Documentation</a>
                             <a href="resources.html#hardware" class="block text-sm text-gray-300 hover:text-white transition-colors">Hardware Compatibility</a>
                             <a href="resources.html#guestos" class="block text-sm text-gray-300 hover:text-white transition-colors">Guest OS Support List</a>
@@ -80,6 +82,7 @@
             </div>
         </div>
         
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl border-b border-white/10">
             <div class="px-6 py-4 space-y-4">
                 <a href="index.html" class="block text-gray-300 hover:text-white">Home</a>
@@ -87,7 +90,7 @@
                 <a href="products.html" class="block text-gray-300 hover:text-white">Products</a>
                 <a href="about.html" class="block text-gray-300 hover:text-white">About</a>
                 <a href="contact.html" class="block text-gray-300 hover:text-white">Contact</a>
-                <a href="resources.html" class="block text-white font-medium">Resources</a>
+                <a href="resources.html" class="block text-white font-medium border-l-2 border-red-500 pl-2">Resources</a>
                 <a href="contact.html" class="block text-red-500 font-semibold">Request a Demo</a>
             </div>
         </div>
@@ -174,9 +177,9 @@
                                 <span class="text-xs text-red-500">PDF</span>
                             </div>
                         </div>
-                        <a href="#documentation" onclick="showCategory('documentation')" class="text-red-500 hover:text-red-400 text-sm font-semibold flex items-center gap-1">
+                        <button onclick="showCategory('documentation')" class="text-red-500 hover:text-red-400 text-sm font-semibold flex items-center gap-1">
                             View all <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
+                        </button>
                     </div>
 
                     <!-- Hardware Compatibility -->
@@ -200,9 +203,9 @@
                                 <span class="text-xs text-yellow-500">Compatible</span>
                             </div>
                         </div>
-                        <a href="#hardware" onclick="showCategory('hardware')" class="text-red-500 hover:text-red-400 text-sm font-semibold flex items-center gap-1">
+                        <button onclick="showCategory('hardware')" class="text-red-500 hover:text-red-400 text-sm font-semibold flex items-center gap-1">
                             View all <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
+                        </button>
                     </div>
 
                     <!-- Guest OS Support -->
@@ -226,9 +229,9 @@
                                 <span class="text-xs text-green-500">Supported</span>
                             </div>
                         </div>
-                        <a href="#guestos" onclick="showCategory('guestos')" class="text-red-500 hover:text-red-400 text-sm font-semibold flex items-center gap-1">
+                        <button onclick="showCategory('guestos')" class="text-red-500 hover:text-red-400 text-sm font-semibold flex items-center gap-1">
                             View all <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
+                        </button>
                     </div>
 
                     <!-- Whitepapers -->
@@ -252,9 +255,9 @@
                                 <span class="text-xs text-red-500">PDF</span>
                             </div>
                         </div>
-                        <a href="#whitepapers" onclick="showCategory('whitepapers')" class="text-red-500 hover:text-red-400 text-sm font-semibold flex items-center gap-1">
+                        <button onclick="showCategory('whitepapers')" class="text-red-500 hover:text-red-400 text-sm font-semibold flex items-center gap-1">
                             View all <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
+                        </button>
                     </div>
 
                     <!-- API Reference -->
@@ -278,9 +281,9 @@
                                 <span class="text-xs text-red-500">PDF</span>
                             </div>
                         </div>
-                        <a href="#api" onclick="showCategory('api')" class="text-red-500 hover:text-red-400 text-sm font-semibold flex items-center gap-1">
+                        <button onclick="showCategory('api')" class="text-red-500 hover:text-red-400 text-sm font-semibold flex items-center gap-1">
                             View all <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
+                        </button>
                     </div>
 
                     <!-- Video Tutorials -->
@@ -932,7 +935,8 @@
             <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-2">
                     <div class="flex items-center gap-3 mb-6">
-                        <img src="metavirt-logo.png" alt="MetaVirt" class="h-10 w-auto">
+                        <!-- FIXED: Logo URL -->
+                        <img src="https://kimi-web-img.moonshot.cn/img/metavirt-logo.png" alt="MetaVirt" class="h-10 w-auto">
                         <div>
                             <h3 class="font-display font-bold text-xl text-white">MetaVirt</h3>
                             <p class="text-xs text-red-500">Enterprise-grade Private Cloud</p>
