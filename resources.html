@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources - MetaVirt | Documentation & Downloads</title>
-    <meta name="description" content="Access MetaVirt product documentation, hardware compatibility lists, guest OS support matrices, whitepapers, and technical resources.">
+    <meta name="description" content="Access MetaVirt product documentation, hardware compatibility lists, and guest OS support matrices.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,23 +26,18 @@
         .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
         .resource-card { transition: all 0.4s ease; border: 1px solid rgba(255, 255, 255, 0.1); }
         .resource-card:hover { border-color: rgba(220, 38, 38, 0.4); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(220, 38, 38, 0.1); }
-        .category-tab { transition: all 0.3s ease; cursor: pointer; border: 1px solid rgba(255, 255, 255, 0.1); }
-        .category-tab.active { background: rgba(220, 38, 38, 0.2); border-color: rgba(220, 38, 38, 0.5); color: white; }
-        .resource-content { display: none; }
-        .resource-content.active { display: block; animation: fadeIn 0.5s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .doc-item { transition: all 0.3s ease; }
+        .doc-item { transition: all 0.3s ease; border-left: 3px solid transparent; }
         .doc-item:hover { background: rgba(220, 38, 38, 0.05); border-left: 3px solid #dc2626; padding-left: 1.25rem; }
+        .section-anchor { scroll-margin-top: 100px; }
     </style>
 </head>
 <body class="antialiased selection:bg-red-600 selection:text-white">
 
-    <!-- Navigation -->
+    <!-- Navigation - SAME ON ALL PAGES -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 nav-blur">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between">
                 <a href="index.html" class="flex items-center gap-3">
-                    <!-- FIXED: Use the same logo URL as your index.html -->
                     <img src="https://kimi-web-img.moonshot.cn/img/metavirt-logo.png" alt="MetaVirt" class="h-10 w-auto">
                     <div>
                         <h1 class="font-display font-bold text-2xl tracking-tight text-white">MetaVirt</h1>
@@ -57,19 +52,16 @@
                     <a href="about.html" class="text-sm text-gray-300 hover:text-white transition-colors">About</a>
                     <a href="contact.html" class="text-sm text-gray-300 hover:text-white transition-colors">Contact</a>
                     
-                    <!-- FIXED: Made Resources a clickable link with dropdown -->
+                    <!-- Resources Dropdown - SAME ON ALL PAGES -->
                     <div class="dropdown relative group">
                         <a href="resources.html" class="text-sm text-white font-medium border-b-2 border-red-600 flex items-center gap-1 py-1">
                             Resources
                             <i data-lucide="chevron-down" class="w-4 h-4"></i>
                         </a>
                         <div class="dropdown-menu absolute top-full left-0 mt-2 w-64 glass rounded-xl p-4 space-y-3">
-                            <a href="resources.html" class="block text-sm text-white font-medium border-l-2 border-red-500 pl-2">All Resources</a>
                             <a href="resources.html#documentation" class="block text-sm text-gray-300 hover:text-white transition-colors">Product Documentation</a>
                             <a href="resources.html#hardware" class="block text-sm text-gray-300 hover:text-white transition-colors">Hardware Compatibility</a>
                             <a href="resources.html#guestos" class="block text-sm text-gray-300 hover:text-white transition-colors">Guest OS Support List</a>
-                            <a href="resources.html#whitepapers" class="block text-sm text-gray-300 hover:text-white transition-colors">Whitepapers</a>
-                            <a href="resources.html#api" class="block text-sm text-gray-300 hover:text-white transition-colors">API Reference</a>
                         </div>
                     </div>
                     
@@ -109,822 +101,514 @@
                     Technical <span class="gradient-text">Resources</span>
                 </h1>
                 <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-                    Access product documentation, compatibility matrices, technical guides, and best practices for deploying and managing MetaVirt solutions.
+                    Access product documentation, compatibility matrices, and technical guides for MetaVirt solutions.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Search & Filter -->
-    <section class="relative py-12 bg-black">
+    <!-- Product Documentation Section -->
+    <section id="documentation" class="section-anchor relative py-16 bg-black">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="glass rounded-2xl p-6 mb-12 reveal">
-                <div class="flex flex-col md:flex-row gap-4">
-                    <div class="flex-1 relative">
-                        <i data-lucide="search" class="w-5 h-5 text-gray-500 absolute left-4 top-1/2 -translate-y-1/2"></i>
-                        <input type="text" placeholder="Search documentation, guides, compatibility lists..." class="w-full bg-white/5 border border-white/10 rounded-lg pl-12 pr-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-red-500 transition-colors">
+            <div class="glass rounded-3xl p-8 reveal">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center">
+                        <i data-lucide="file-text" class="w-7 h-7 text-white"></i>
                     </div>
-                    <button class="btn-primary px-8 py-3 rounded-lg font-semibold text-white flex items-center justify-center gap-2">
-                        Search
-                    </button>
+                    <div>
+                        <h2 class="font-display text-3xl font-bold text-white">Product Documentation</h2>
+                        <p class="text-gray-400">Installation guides, administration manuals, and API references</p>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Category Tabs -->
-            <div class="flex flex-wrap justify-center gap-3 mb-12 reveal">
-                <button class="category-tab active glass px-6 py-3 rounded-full text-sm font-medium text-gray-400" onclick="showCategory('all')">
-                    All Resources
-                </button>
-                <button class="category-tab glass px-6 py-3 rounded-full text-sm font-medium text-gray-400" onclick="showCategory('documentation')">
-                    Documentation
-                </button>
-                <button class="category-tab glass px-6 py-3 rounded-full text-sm font-medium text-gray-400" onclick="showCategory('hardware')">
-                    Hardware Compatibility
-                </button>
-                <button class="category-tab glass px-6 py-3 rounded-full text-sm font-medium text-gray-400" onclick="showCategory('guestos')">
-                    Guest OS Support
-                </button>
-                <button class="category-tab glass px-6 py-3 rounded-full text-sm font-medium text-gray-400" onclick="showCategory('whitepapers')">
-                    Whitepapers
-                </button>
-                <button class="category-tab glass px-6 py-3 rounded-full text-sm font-medium text-gray-400" onclick="showCategory('api')">
-                    API Reference
-                </button>
-            </div>
-
-            <!-- All Resources -->
-            <div id="all" class="resource-content active">
+                
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    
-                    <!-- Product Documentation -->
-                    <div class="resource-card glass rounded-2xl p-6 reveal">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center mb-6">
-                            <i data-lucide="file-text" class="w-7 h-7 text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Product Documentation</h3>
-                        <p class="text-gray-400 text-sm mb-4">Complete guides for installation, configuration, and administration of MetaVirt products.</p>
-                        <div class="space-y-2 mb-6">
-                            <div class="doc-item flex items-center justify-between p-2 rounded cursor-pointer">
-                                <span class="text-sm text-gray-300">ZStack Cloud Admin Guide</span>
-                                <span class="text-xs text-red-500">PDF</span>
-                            </div>
-                            <div class="doc-item flex items-center justify-between p-2 rounded cursor-pointer">
-                                <span class="text-sm text-gray-300">ZSphere Installation Manual</span>
-                                <span class="text-xs text-red-500">PDF</span>
-                            </div>
-                            <div class="doc-item flex items-center justify-between p-2 rounded cursor-pointer">
-                                <span class="text-sm text-gray-300">Storage Configuration Guide</span>
-                                <span class="text-xs text-red-500">PDF</span>
-                            </div>
-                        </div>
-                        <button onclick="showCategory('documentation')" class="text-red-500 hover:text-red-400 text-sm font-semibold flex items-center gap-1">
-                            View all <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </button>
-                    </div>
-
-                    <!-- Hardware Compatibility -->
-                    <div class="resource-card glass rounded-2xl p-6 reveal" style="transition-delay: 100ms;">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center mb-6">
-                            <i data-lucide="server" class="w-7 h-7 text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Hardware Compatibility</h3>
-                        <p class="text-gray-400 text-sm mb-4">Certified server hardware, network equipment, and storage arrays tested with MetaVirt solutions.</p>
-                        <div class="space-y-2 mb-6">
-                            <div class="doc-item flex items-center justify-between p-2 rounded cursor-pointer">
-                                <span class="text-sm text-gray-300">Dell PowerEdge Series</span>
-                                <span class="text-xs text-green-500">Certified</span>
-                            </div>
-                            <div class="doc-item flex items-center justify-between p-2 rounded cursor-pointer">
-                                <span class="text-sm text-gray-300">HPE ProLiant Servers</span>
-                                <span class="text-xs text-green-500">Certified</span>
-                            </div>
-                            <div class="doc-item flex items-center justify-between p-2 rounded cursor-pointer">
-                                <span class="text-sm text-gray-300">Lenovo ThinkSystem</span>
-                                <span class="text-xs text-yellow-500">Compatible</span>
-                            </div>
-                        </div>
-                        <button onclick="showCategory('hardware')" class="text-red-500 hover:text-red-400 text-sm font-semibold flex items-center gap-1">
-                            View all <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </button>
-                    </div>
-
-                    <!-- Guest OS Support -->
-                    <div class="resource-card glass rounded-2xl p-6 reveal" style="transition-delay: 200ms;">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center mb-6">
-                            <i data-lucide="monitor" class="w-7 h-7 text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Guest OS Support</h3>
-                        <p class="text-gray-400 text-sm mb-4">Comprehensive list of supported operating systems for virtual machines and containers.</p>
-                        <div class="space-y-2 mb-6">
-                            <div class="doc-item flex items-center justify-between p-2 rounded cursor-pointer">
-                                <span class="text-sm text-gray-300">Windows Server 2019/2022</span>
-                                <span class="text-xs text-green-500">Supported</span>
-                            </div>
-                            <div class="doc-item flex items-center justify-between p-2 rounded cursor-pointer">
-                                <span class="text-sm text-gray-300">RHEL 8/9 & CentOS</span>
-                                <span class="text-xs text-green-500">Supported</span>
-                            </div>
-                            <div class="doc-item flex items-center justify-between p-2 rounded cursor-pointer">
-                                <span class="text-sm text-gray-300">Ubuntu 20.04/22.04 LTS</span>
-                                <span class="text-xs text-green-500">Supported</span>
-                            </div>
-                        </div>
-                        <button onclick="showCategory('guestos')" class="text-red-500 hover:text-red-400 text-sm font-semibold flex items-center gap-1">
-                            View all <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </button>
-                    </div>
-
-                    <!-- Whitepapers -->
-                    <div class="resource-card glass rounded-2xl p-6 reveal">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center mb-6">
-                            <i data-lucide="book" class="w-7 h-7 text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Whitepapers</h3>
-                        <p class="text-gray-400 text-sm mb-4">Technical deep-dives, architecture guides, and best practices for enterprise deployments.</p>
-                        <div class="space-y-2 mb-6">
-                            <div class="doc-item flex items-center justify-between p-2 rounded cursor-pointer">
-                                <span class="text-sm text-gray-300">Private Cloud Architecture Guide</span>
-                                <span class="text-xs text-red-500">PDF</span>
-                            </div>
-                            <div class="doc-item flex items-center justify-between p-2 rounded cursor-pointer">
-                                <span class="text-sm text-gray-300">VMware Migration Strategy</span>
-                                <span class="text-xs text-red-500">PDF</span>
-                            </div>
-                            <div class="doc-item flex items-center justify-between p-2 rounded cursor-pointer">
-                                <span class="text-sm text-gray-300">Storage Performance Tuning</span>
-                                <span class="text-xs text-red-500">PDF</span>
-                            </div>
-                        </div>
-                        <button onclick="showCategory('whitepapers')" class="text-red-500 hover:text-red-400 text-sm font-semibold flex items-center gap-1">
-                            View all <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </button>
-                    </div>
-
-                    <!-- API Reference -->
-                    <div class="resource-card glass rounded-2xl p-6 reveal" style="transition-delay: 100ms;">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center mb-6">
-                            <i data-lucide="code" class="w-7 h-7 text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">API Reference</h3>
-                        <p class="text-gray-400 text-sm mb-4">Complete API documentation for automation, integration, and custom development.</p>
-                        <div class="space-y-2 mb-6">
-                            <div class="doc-item flex items-center justify-between p-2 rounded cursor-pointer">
-                                <span class="text-sm text-gray-300">REST API v4.0 Documentation</span>
-                                <span class="text-xs text-blue-500">Web</span>
-                            </div>
-                            <div class="doc-item flex items-center justify-between p-2 rounded cursor-pointer">
-                                <span class="text-sm text-gray-300">Python SDK Guide</span>
-                                <span class="text-xs text-red-500">PDF</span>
-                            </div>
-                            <div class="doc-item flex items-center justify-between p-2 rounded cursor-pointer">
-                                <span class="text-sm text-gray-300">CLI Command Reference</span>
-                                <span class="text-xs text-red-500">PDF</span>
-                            </div>
-                        </div>
-                        <button onclick="showCategory('api')" class="text-red-500 hover:text-red-400 text-sm font-semibold flex items-center gap-1">
-                            View all <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </button>
-                    </div>
-
-                    <!-- Video Tutorials -->
-                    <div class="resource-card glass rounded-2xl p-6 reveal" style="transition-delay: 200ms;">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center mb-6">
-                            <i data-lucide="video" class="w-7 h-7 text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Video Tutorials</h3>
-                        <p class="text-gray-400 text-sm mb-4">Step-by-step video guides for installation, configuration, and common tasks.</p>
-                        <div class="space-y-2 mb-6">
-                            <div class="doc-item flex items-center justify-between p-2 rounded cursor-pointer">
-                                <span class="text-sm text-gray-300">Getting Started with ZStack Cloud</span>
-                                <span class="text-xs text-purple-500">Video</span>
-                            </div>
-                            <div class="doc-item flex items-center justify-between p-2 rounded cursor-pointer">
-                                <span class="text-sm text-gray-300">VM Migration Tutorial</span>
-                                <span class="text-xs text-purple-500">Video</span>
-                            </div>
-                            <div class="doc-item flex items-center justify-between p-2 rounded cursor-pointer">
-                                <span class="text-sm text-gray-300">Storage Configuration</span>
-                                <span class="text-xs text-purple-500">Video</span>
-                            </div>
-                        </div>
-                        <span class="text-gray-500 text-sm">Coming soon</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Documentation Section (Detailed) -->
-            <div id="documentation" class="resource-content">
-                <div class="glass rounded-3xl p-8 reveal">
-                    <h2 class="font-display text-3xl font-bold text-white mb-8">Product Documentation</h2>
-                    
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                                <i data-lucide="cloud" class="w-5 h-5 text-red-500"></i>
-                                ZStack Cloud
-                            </h3>
-                            <div class="space-y-3">
-                                <a href="#" class="doc-item block p-3 rounded-lg glass hover:border-red-500/50 border border-transparent">
-                                    <div class="flex items-center justify-between">
-                                        <span class="text-gray-300">Installation Guide</span>
-                                        <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
-                                    </div>
-                                    <p class="text-sm text-gray-500 mt-1">Step-by-step installation and initial configuration</p>
-                                </a>
-                                <a href="#" class="doc-item block p-3 rounded-lg glass hover:border-red-500/50 border border-transparent">
-                                    <div class="flex items-center justify-between">
-                                        <span class="text-gray-300">Administrator Guide</span>
-                                        <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
-                                    </div>
-                                    <p class="text-sm text-gray-500 mt-1">Complete administration and operations manual</p>
-                                </a>
-                                <a href="#" class="doc-item block p-3 rounded-lg glass hover:border-red-500/50 border border-transparent">
-                                    <div class="flex items-center justify-between">
-                                        <span class="text-gray-300">User Guide</span>
-                                        <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
-                                    </div>
-                                    <p class="text-sm text-gray-500 mt-1">End-user guide for self-service portal</p>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                                <i data-lucide="cpu" class="w-5 h-5 text-red-500"></i>
-                                ZStack ZSphere
-                            </h3>
-                            <div class="space-y-3">
-                                <a href="#" class="doc-item block p-3 rounded-lg glass hover:border-red-500/50 border border-transparent">
-                                    <div class="flex items-center justify-between">
-                                        <span class="text-gray-300">Hypervisor Installation</span>
-                                        <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
-                                    </div>
-                                    <p class="text-sm text-gray-500 mt-1">Bare-metal hypervisor deployment guide</p>
-                                </a>
-                                <a href="#" class="doc-item block p-3 rounded-lg glass hover:border-red-500/50 border border-transparent">
-                                    <div class="flex items-center justify-between">
-                                        <span class="text-gray-300">VM Management Guide</span>
-                                        <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
-                                    </div>
-                                    <p class="text-sm text-gray-500 mt-1">Virtual machine lifecycle management</p>
-                                </a>
-                                <a href="#" class="doc-item block p-3 rounded-lg glass hover:border-red-500/50 border border-transparent">
-                                    <div class="flex items-center justify-between">
-                                        <span class="text-gray-300">Migration Guide</span>
-                                        <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
-                                    </div>
-                                    <p class="text-sm text-gray-500 mt-1">Hot migration and disaster recovery setup</p>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                                <i data-lucide="hard-drive" class="w-5 h-5 text-red-500"></i>
-                                Storage Solutions
-                            </h3>
-                            <div class="space-y-3">
-                                <a href="#" class="doc-item block p-3 rounded-lg glass hover:border-red-500/50 border border-transparent">
-                                    <div class="flex items-center justify-between">
-                                        <span class="text-gray-300">ZStone Deployment Guide</span>
-                                        <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
-                                    </div>
-                                    <p class="text-sm text-gray-500 mt-1">Ceph-based distributed storage setup</p>
-                                </a>
-                                <a href="#" class="doc-item block p-3 rounded-lg glass hover:border-red-500/50 border border-transparent">
-                                    <div class="flex items-center justify-between">
-                                        <span class="text-gray-300">ZCE Configuration</span>
-                                        <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
-                                    </div>
-                                    <p class="text-sm text-gray-500 mt-1">Unified storage platform configuration</p>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                                <i data-lucide="shield-check" class="w-5 h-5 text-red-500"></i>
-                                Vinchin Backup
-                            </h3>
-                            <div class="space-y-3">
-                                <a href="#" class="doc-item block p-3 rounded-lg glass hover:border-red-500/50 border border-transparent">
-                                    <div class="flex items-center justify-between">
-                                        <span class="text-gray-300">Backup Deployment Guide</span>
-                                        <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
-                                    </div>
-                                    <p class="text-sm text-gray-500 mt-1">Installation and initial configuration</p>
-                                </a>
-                                <a href="#" class="doc-item block p-3 rounded-lg glass hover:border-red-500/50 border border-transparent">
-                                    <div class="flex items-center justify-between">
-                                        <span class="text-gray-300">DR Planning Guide</span>
-                                        <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
-                                    </div>
-                                    <p class="text-sm text-gray-500 mt-1">Disaster recovery strategy and implementation</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Hardware Compatibility (Detailed) -->
-            <div id="hardware" class="resource-content">
-                <div class="glass rounded-3xl p-8 reveal">
-                    <h2 class="font-display text-3xl font-bold text-white mb-8">Hardware Compatibility List</h2>
-                    
-                    <div class="mb-8 p-4 glass-red rounded-xl border border-red-500/20">
-                        <p class="text-gray-300 text-sm">
-                            <i data-lucide="info" class="w-4 h-4 inline mr-2 text-red-500"></i>
-                            MetaVirt solutions are designed to run on standard x86_64 servers. The following hardware has been tested and certified for production deployments.
-                        </p>
-                    </div>
-
-                    <div class="space-y-8">
-                        <!-- Servers -->
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-4">Certified Servers</h3>
-                            <div class="overflow-x-auto">
-                                <table class="w-full text-left">
-                                    <thead>
-                                        <tr class="border-b border-white/10">
-                                            <th class="pb-3 text-gray-400 font-medium">Manufacturer</th>
-                                            <th class="pb-3 text-gray-400 font-medium">Model Series</th>
-                                            <th class="pb-3 text-gray-400 font-medium">Status</th>
-                                            <th class="pb-3 text-gray-400 font-medium">Notes</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="text-sm">
-                                        <tr class="border-b border-white/5">
-                                            <td class="py-3 text-white">Dell</td>
-                                            <td class="py-3 text-gray-300">PowerEdge R640/R650/R740/R750</td>
-                                            <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
-                                            <td class="py-3 text-gray-500">iDRAC 8/9 supported</td>
-                                        </tr>
-                                        <tr class="border-b border-white/5">
-                                            <td class="py-3 text-white">HPE</td>
-                                            <td class="py-3 text-gray-300">ProLiant DL360/DL380 Gen10/Gen11</td>
-                                            <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
-                                            <td class="py-3 text-gray-500">iLO 4/5/6 supported</td>
-                                        </tr>
-                                        <tr class="border-b border-white/5">
-                                            <td class="py-3 text-white">Lenovo</td>
-                                            <td class="py-3 text-gray-300">ThinkSystem SR650/SR630</td>
-                                            <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
-                                            <td class="py-3 text-gray-500">XClarity integration</td>
-                                        </tr>
-                                        <tr class="border-b border-white/5">
-                                            <td class="py-3 text-white">Supermicro</td>
-                                            <td class="py-3 text-gray-300">Ultra SuperServer Series</td>
-                                            <td class="py-3"><span class="text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded text-xs">Compatible</span></td>
-                                            <td class="py-3 text-gray-500">IPMI 2.0 required</td>
-                                        </tr>
-                                        <tr class="border-b border-white/5">
-                                            <td class="py-3 text-white">Cisco</td>
-                                            <td class="py-3 text-gray-300">UCS C220/C240 M5/M6</td>
-                                            <td class="py-3"><span class="text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded text-xs">Compatible</span></td>
-                                            <td class="py-3 text-gray-500">CIMC configuration required</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <!-- Network -->
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-4">Network Equipment</h3>
-                            <div class="grid md:grid-cols-2 gap-4">
-                                <div class="glass rounded-xl p-4">
-                                    <h4 class="text-white font-semibold mb-2">Top-of-Rack Switches</h4>
-                                    <ul class="text-sm text-gray-400 space-y-1">
-                                        <li>• Cisco Nexus 3000/9000 Series</li>
-                                        <li>• Arista 7000 Series</li>
-                                        <li>• Juniper QFX Series</li>
-                                        <li>• Dell Z-Series</li>
-                                    </ul>
+                    <!-- ZStack Cloud -->
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="cloud" class="w-5 h-5 text-red-500"></i>
+                            ZStack Cloud
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="#" class="doc-item block p-3 rounded-lg bg-white/5 hover:bg-red-500/5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-gray-300 text-sm">Installation Guide</span>
+                                    <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
                                 </div>
-                                <div class="glass rounded-xl p-4">
-                                    <h4 class="text-white font-semibold mb-2">Storage Networking</h4>
-                                    <ul class="text-sm text-gray-400 space-y-1">
-                                        <li>• Brocade G620/G630 FC Switches</li>
-                                        <li>• Cisco MDS 9000 Series</li>
-                                        <li>• 10/25/40/100GbE supported</li>
-                                        <li>• NVMe-oF ready</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Storage -->
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-4">External Storage Arrays</h3>
-                            <div class="overflow-x-auto">
-                                <table class="w-full text-left">
-                                    <thead>
-                                        <tr class="border-b border-white/10">
-                                            <th class="pb-3 text-gray-400 font-medium">Vendor</th>
-                                            <th class="pb-3 text-gray-400 font-medium">Product Line</th>
-                                            <th class="pb-3 text-gray-400 font-medium">Protocols</th>
-                                            <th class="pb-3 text-gray-400 font-medium">Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="text-sm">
-                                        <tr class="border-b border-white/5">
-                                            <td class="py-3 text-white">Dell EMC</td>
-                                            <td class="py-3 text-gray-300">PowerStore, Unity XT</td>
-                                            <td class="py-3 text-gray-400">iSCSI, FC</td>
-                                            <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
-                                        </tr>
-                                        <tr class="border-b border-white/5">
-                                            <td class="py-3 text-white">NetApp</td>
-                                            <td class="py-3 text-gray-300">AFF, FAS Series</td>
-                                            <td class="py-3 text-gray-400">NFS, iSCSI, FC</td>
-                                            <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
-                                        </tr>
-                                        <tr class="border-b border-white/5">
-                                            <td class="py-3 text-white">HPE</td>
-                                            <td class="py-3 text-gray-300">Alletra, Nimble</td>
-                                            <td class="py-3 text-gray-400">iSCSI, FC</td>
-                                            <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
-                                        </tr>
-                                        <tr class="border-b border-white/5">
-                                            <td class="py-3 text-white">Pure Storage</td>
-                                            <td class="py-3 text-gray-300">FlashArray</td>
-                                            <td class="py-3 text-gray-400">iSCSI, FC, NVMe-oF</td>
-                                            <td class="py-3"><span class="text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded text-xs">Compatible</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-8 text-center">
-                        <p class="text-gray-400 text-sm mb-4">Don't see your hardware? Contact us for compatibility verification.</p>
-                        <a href="contact.html" class="btn-primary px-6 py-3 rounded-full font-semibold text-white inline-flex items-center gap-2">
-                            Request Compatibility Check
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Guest OS Support (Detailed) -->
-            <div id="guestos" class="resource-content">
-                <div class="glass rounded-3xl p-8 reveal">
-                    <h2 class="font-display text-3xl font-bold text-white mb-8">Guest Operating System Support</h2>
-                    
-                    <div class="mb-8 p-4 glass-red rounded-xl border border-red-500/20">
-                        <p class="text-gray-300 text-sm">
-                            <i data-lucide="info" class="w-4 h-4 inline mr-2 text-red-500"></i>
-                            The following operating systems are officially supported for running as virtual machines on ZStack Cloud and ZSphere platforms.
-                        </p>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <!-- Windows -->
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                                <i data-lucide="monitor" class="w-5 h-5 text-blue-500"></i>
-                                Microsoft Windows
-                            </h3>
-                            <div class="space-y-2">
-                                <div class="flex items-center justify-between p-3 rounded-lg glass">
-                                    <span class="text-gray-300">Windows Server 2022</span>
-                                    <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Fully Supported</span>
-                                </div>
-                                <div class="flex items-center justify-between p-3 rounded-lg glass">
-                                    <span class="text-gray-300">Windows Server 2019</span>
-                                    <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Fully Supported</span>
-                                </div>
-                                <div class="flex items-center justify-between p-3 rounded-lg glass">
-                                    <span class="text-gray-300">Windows Server 2016</span>
-                                    <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
-                                </div>
-                                <div class="flex items-center justify-between p-3 rounded-lg glass">
-                                    <span class="text-gray-300">Windows 11</span>
-                                    <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
-                                </div>
-                                <div class="flex items-center justify-between p-3 rounded-lg glass">
-                                    <span class="text-gray-300">Windows 10</span>
-                                    <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
-                                </div>
-                            </div>
-                            <p class="text-xs text-gray-500 mt-3">* Requires VirtIO drivers for optimal performance</p>
-                        </div>
-
-                        <!-- Linux -->
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                                <i data-lucide="terminal" class="w-5 h-5 text-yellow-500"></i>
-                                Linux Distributions
-                            </h3>
-                            <div class="space-y-2">
-                                <div class="flex items-center justify-between p-3 rounded-lg glass">
-                                    <span class="text-gray-300">RHEL 9.x / CentOS Stream 9</span>
-                                    <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Fully Supported</span>
-                                </div>
-                                <div class="flex items-center justify-between p-3 rounded-lg glass">
-                                    <span class="text-gray-300">RHEL 8.x / CentOS 8</span>
-                                    <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Fully Supported</span>
-                                </div>
-                                <div class="flex items-center justify-between p-3 rounded-lg glass">
-                                    <span class="text-gray-300">Ubuntu 22.04 LTS</span>
-                                    <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Fully Supported</span>
-                                </div>
-                                <div class="flex items-center justify-between p-3 rounded-lg glass">
-                                    <span class="text-gray-300">Ubuntu 20.04 LTS</span>
-                                    <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Fully Supported</span>
-                                </div>
-                                <div class="flex items-center justify-between p-3 rounded-lg glass">
-                                    <span class="text-gray-300">Debian 11/12</span>
-                                    <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
-                                </div>
-                                <div class="flex items-center justify-between p-3 rounded-lg glass">
-                                    <span class="text-gray-300">SUSE Linux Enterprise 15</span>
-                                    <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Other -->
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                                <i data-lucide="server" class="w-5 h-5 text-orange-500"></i>
-                                Other Operating Systems
-                            </h3>
-                            <div class="space-y-2">
-                                <div class="flex items-center justify-between p-3 rounded-lg glass">
-                                    <span class="text-gray-300">FreeBSD 13.x</span>
-                                    <span class="text-xs text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded">Compatible</span>
-                                </div>
-                                <div class="flex items-center justify-between p-3 rounded-lg glass">
-                                    <span class="text-gray-300">Oracle Linux 8/9</span>
-                                    <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
-                                </div>
-                                <div class="flex items-center justify-between p-3 rounded-lg glass">
-                                    <span class="text-gray-300">AlmaLinux 8/9</span>
-                                    <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
-                                </div>
-                                <div class="flex items-center justify-between p-3 rounded-lg glass">
-                                    <span class="text-gray-300">Rocky Linux 8/9</span>
-                                    <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Containers -->
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                                <i data-lucide="container" class="w-5 h-5 text-blue-400"></i>
-                                Container Base Images
-                            </h3>
-                            <div class="space-y-2">
-                                <div class="flex items-center justify-between p-3 rounded-lg glass">
-                                    <span class="text-gray-300">Kubernetes (ZAKU)</span>
-                                    <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">1.24 - 1.28</span>
-                                </div>
-                                <div class="flex items-center justify-between p-3 rounded-lg glass">
-                                    <span class="text-gray-300">Docker CE</span>
-                                    <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">20.10+</span>
-                                </div>
-                                <div class="flex items-center justify-between p-3 rounded-lg glass">
-                                    <span class="text-gray-300">containerd</span>
-                                    <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">1.6+</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-8 p-4 glass rounded-xl">
-                        <h4 class="text-white font-semibold mb-2">Driver Requirements</h4>
-                        <p class="text-gray-400 text-sm">
-                            All guest operating systems require VirtIO drivers for optimal network and storage performance. 
-                            Windows guests require additional VirtIO-Serial and Balloon drivers. Download the latest 
-                            VirtIO driver ISO from the resources section.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Whitepapers (Detailed) -->
-            <div id="whitepapers" class="resource-content">
-                <div class="glass rounded-3xl p-8 reveal">
-                    <h2 class="font-display text-3xl font-bold text-white mb-8">Whitepapers & Architecture Guides</h2>
-                    
-                    <div class="space-y-6">
-                        <div class="glass rounded-xl p-6 hover:border-red-500/50 border border-transparent transition-all">
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 rounded-lg bg-red-600/20 flex items-center justify-center flex-shrink-0">
-                                    <i data-lucide="building-2" class="w-6 h-6 text-red-500"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-bold text-white mb-2">Private Cloud Architecture for Enterprises</h3>
-                                    <p class="text-gray-400 text-sm mb-3">
-                                        Comprehensive guide to designing and implementing enterprise-grade private cloud infrastructure using MetaVirt solutions. Covers multi-tenancy, network design, storage architecture, and operational best practices.
-                                    </p>
-                                    <div class="flex items-center gap-4 text-sm text-gray-500">
-                                        <span class="flex items-center gap-1">
-                                            <i data-lucide="file-text" class="w-4 h-4"></i> 24 pages
-                                        </span>
-                                        <span class="flex items-center gap-1">
-                                            <i data-lucide="download" class="w-4 h-4"></i> PDF
-                                        </span>
-                                    </div>
-                                </div>
-                                <button class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2">
-                                    Download
-                                    <i data-lucide="download" class="w-4 h-4"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="glass rounded-xl p-6 hover:border-red-500/50 border border-transparent transition-all">
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 rounded-lg bg-red-600/20 flex items-center justify-center flex-shrink-0">
-                                    <i data-lucide="log-out" class="w-6 h-6 text-red-500"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-bold text-white mb-2">VMware Exit Strategy: Migration Guide</h3>
-                                    <p class="text-gray-400 text-sm mb-3">
-                                        Step-by-step methodology for migrating from VMware vSphere to ZStack ZSphere. Includes workload assessment, migration planning, risk mitigation, and post-migration optimization strategies.
-                                    </p>
-                                    <div class="flex items-center gap-4 text-sm text-gray-500">
-                                        <span class="flex items-center gap-1">
-                                            <i data-lucide="file-text" class="w-4 h-4"></i> 32 pages
-                                        </span>
-                                        <span class="flex items-center gap-1">
-                                            <i data-lucide="download" class="w-4 h-4"></i> PDF
-                                        </span>
-                                    </div>
-                                </div>
-                                <button class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2">
-                                    Download
-                                    <i data-lucide="download" class="w-4 h-4"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="glass rounded-xl p-6 hover:border-red-500/50 border border-transparent transition-all">
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 rounded-lg bg-red-600/20 flex items-center justify-center flex-shrink-0">
-                                    <i data-lucide="hard-drive" class="w-6 h-6 text-red-500"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-bold text-white mb-2">Software-Defined Storage: Performance Tuning</h3>
-                                    <p class="text-gray-400 text-sm mb-3">
-                                        Deep dive into optimizing Ceph-based storage for enterprise workloads. Covers hardware selection, network configuration, CRUSH map optimization, and performance benchmarking methodologies.
-                                    </p>
-                                    <div class="flex items-center gap-4 text-sm text-gray-500">
-                                        <span class="flex items-center gap-1">
-                                            <i data-lucide="file-text" class="w-4 h-4"></i> 28 pages
-                                        </span>
-                                        <span class="flex items-center gap-1">
-                                            <i data-lucide="download" class="w-4 h-4"></i> PDF
-                                        </span>
-                                    </div>
-                                </div>
-                                <button class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2">
-                                    Download
-                                    <i data-lucide="download" class="w-4 h-4"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="glass rounded-xl p-6 hover:border-red-500/50 border border-transparent transition-all">
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 rounded-lg bg-red-600/20 flex items-center justify-center flex-shrink-0">
-                                    <i data-lucide="shield-check" class="w-6 h-6 text-red-500"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-bold text-white mb-2">Disaster Recovery Planning with Vinchin</h3>
-                                    <p class="text-gray-400 text-sm mb-3">
-                                        Best practices for implementing comprehensive backup and disaster recovery strategies. Includes RTO/RPO planning, replication architecture, and ransomware recovery procedures.
-                                    </p>
-                                    <div class="flex items-center gap-4 text-sm text-gray-500">
-                                        <span class="flex items-center gap-1">
-                                            <i data-lucide="file-text" class="w-4 h-4"></i> 20 pages
-                                        </span>
-                                        <span class="flex items-center gap-1">
-                                            <i data-lucide="download" class="w-4 h-4"></i> PDF
-                                        </span>
-                                    </div>
-                                </div>
-                                <button class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white flex items-center gap-2">
-                                    Download
-                                    <i data-lucide="download" class="w-4 h-4"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- API Reference (Detailed) -->
-            <div id="api" class="resource-content">
-                <div class="glass rounded-3xl p-8 reveal">
-                    <h2 class="font-display text-3xl font-bold text-white mb-8">API Reference & Developer Tools</h2>
-                    
-                    <div class="grid md:grid-cols-2 gap-8 mb-8">
-                        <div class="glass-red rounded-2xl p-6 border border-red-500/20">
-                            <h3 class="text-xl font-bold text-white mb-4">REST API v4.0</h3>
-                            <p class="text-gray-400 text-sm mb-4">
-                                Complete RESTful API for automating ZStack Cloud operations. Supports VM lifecycle, network management, storage operations, and user management.
-                            </p>
-                            <div class="space-y-2 mb-6">
-                                <div class="flex items-center gap-2 text-sm text-gray-300">
-                                    <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
-                                    OpenAPI 3.0 specification
-                                </div>
-                                <div class="flex items-center gap-2 text-sm text-gray-300">
-                                    <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
-                                    JSON request/response format
-                                </div>
-                                <div class="flex items-center gap-2 text-sm text-gray-300">
-                                    <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
-                                    Token-based authentication
-                                </div>
-                                <div class="flex items-center gap-2 text-sm text-gray-300">
-                                    <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
-                                    Webhook support for events
-                                </div>
-                            </div>
-                            <a href="#" class="text-red-500 hover:text-red-400 text-sm font-semibold flex items-center gap-1">
-                                View API Documentation <i data-lucide="external-link" class="w-4 h-4"></i>
+                                <p class="text-xs text-gray-500">Step-by-step deployment instructions</p>
                             </a>
-                        </div>
-
-                        <div class="glass rounded-2xl p-6 border border-white/10">
-                            <h3 class="text-xl font-bold text-white mb-4">Python SDK</h3>
-                            <p class="text-gray-400 text-sm mb-4">
-                                Official Python SDK for integrating ZStack into your automation workflows. Supports Python 3.8+ with comprehensive documentation and examples.
-                            </p>
-                            <div class="space-y-2 mb-6">
-                                <div class="flex items-center gap-2 text-sm text-gray-300">
-                                    <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
-                                    pip installable package
+                            <a href="#" class="doc-item block p-3 rounded-lg bg-white/5 hover:bg-red-500/5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-gray-300 text-sm">Administration Guide</span>
+                                    <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
                                 </div>
-                                <div class="flex items-center gap-2 text-sm text-gray-300">
-                                    <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
-                                    Async/await support
+                                <p class="text-xs text-gray-500">Complete operations manual</p>
+                            </a>
+                            <a href="#" class="doc-item block p-3 rounded-lg bg-white/5 hover:bg-red-500/5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-gray-300 text-sm">API Reference</span>
+                                    <span class="text-xs text-blue-500 bg-blue-500/10 px-2 py-1 rounded">Web</span>
                                 </div>
-                                <div class="flex items-center gap-2 text-sm text-gray-300">
-                                    <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
-                                    Type hints included
-                                </div>
-                                <div class="flex items-center gap-2 text-sm text-gray-300">
-                                    <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
-                                    Comprehensive examples
-                                </div>
-                            </div>
-                            <a href="#" class="text-red-500 hover:text-red-400 text-sm font-semibold flex items-center gap-1">
-                                Download SDK <i data-lucide="download" class="w-4 h-4"></i>
+                                <p class="text-xs text-gray-500">REST API documentation</p>
                             </a>
                         </div>
                     </div>
 
-                    <div class="glass rounded-2xl p-6 border border-white/10">
-                        <h3 class="text-xl font-bold text-white mb-4">CLI Tools</h3>
-                        <div class="grid md:grid-cols-3 gap-4">
-                            <div class="p-4 rounded-lg bg-black/30">
-                                <h4 class="text-white font-semibold mb-2">zstack-cli</h4>
-                                <p class="text-sm text-gray-400 mb-3">Command-line interface for ZStack management</p>
-                                <code class="text-xs bg-black/50 px-2 py-1 rounded text-green-400">pip install zstack-cli</code>
-                            </div>
-                            <div class="p-4 rounded-lg bg-black/30">
-                                <h4 class="text-white font-semibold mb-2">Ansible Modules</h4>
-                                <p class="text-sm text-gray-400 mb-3">Infrastructure as Code with Ansible</p>
-                                <code class="text-xs bg-black/50 px-2 py-1 rounded text-green-400">ansible-galaxy collection</code>
-                            </div>
-                            <div class="p-4 rounded-lg bg-black/30">
-                                <h4 class="text-white font-semibold mb-2">Terraform Provider</h4>
-                                <p class="text-sm text-gray-400 mb-3">Declarative infrastructure management</p>
-                                <code class="text-xs bg-black/50 px-2 py-1 rounded text-green-400">terraform init</code>
-                            </div>
+                    <!-- ZSphere -->
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="cpu" class="w-5 h-5 text-red-500"></i>
+                            ZStack ZSphere
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="#" class="doc-item block p-3 rounded-lg bg-white/5 hover:bg-red-500/5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-gray-300 text-sm">Hypervisor Installation</span>
+                                    <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
+                                </div>
+                                <p class="text-xs text-gray-500">Bare-metal deployment guide</p>
+                            </a>
+                            <a href="#" class="doc-item block p-3 rounded-lg bg-white/5 hover:bg-red-500/5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-gray-300 text-sm">VM Management</span>
+                                    <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
+                                </div>
+                                <p class="text-xs text-gray-500">Lifecycle management guide</p>
+                            </a>
+                            <a href="#" class="doc-item block p-3 rounded-lg bg-white/5 hover:bg-red-500/5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-gray-300 text-sm">Migration Guide</span>
+                                    <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
+                                </div>
+                                <p class="text-xs text-gray-500">VMware to ZSphere migration</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Storage -->
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="hard-drive" class="w-5 h-5 text-red-500"></i>
+                            Storage Solutions
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="#" class="doc-item block p-3 rounded-lg bg-white/5 hover:bg-red-500/5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-gray-300 text-sm">ZStone Deployment</span>
+                                    <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
+                                </div>
+                                <p class="text-xs text-gray-500">Distributed storage setup</p>
+                            </a>
+                            <a href="#" class="doc-item block p-3 rounded-lg bg-white/5 hover:bg-red-500/5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-gray-300 text-sm">ZCE Configuration</span>
+                                    <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
+                                </div>
+                                <p class="text-xs text-gray-500">Unified storage platform</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Backup -->
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="shield-check" class="w-5 h-5 text-red-500"></i>
+                            Vinchin Backup
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="#" class="doc-item block p-3 rounded-lg bg-white/5 hover:bg-red-500/5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-gray-300 text-sm">Backup Deployment</span>
+                                    <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
+                                </div>
+                                <p class="text-xs text-gray-500">Installation and configuration</p>
+                            </a>
+                            <a href="#" class="doc-item block p-3 rounded-lg bg-white/5 hover:bg-red-500/5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-gray-300 text-sm">DR Planning Guide</span>
+                                    <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
+                                </div>
+                                <p class="text-xs text-gray-500">Disaster recovery strategy</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Whitepapers (Moved Here) -->
+                    <div class="glass rounded-xl p-6 md:col-span-2">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="book" class="w-5 h-5 text-red-500"></i>
+                            Whitepapers & Architecture Guides
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-3">
+                            <a href="#" class="doc-item block p-3 rounded-lg bg-white/5 hover:bg-red-500/5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-gray-300 text-sm">Private Cloud Architecture</span>
+                                    <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
+                                </div>
+                                <p class="text-xs text-gray-500">Enterprise design patterns</p>
+                            </a>
+                            <a href="#" class="doc-item block p-3 rounded-lg bg-white/5 hover:bg-red-500/5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-gray-300 text-sm">VMware Exit Strategy</span>
+                                    <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
+                                </div>
+                                <p class="text-xs text-gray-500">Migration methodology</p>
+                            </a>
+                            <a href="#" class="doc-item block p-3 rounded-lg bg-white/5 hover:bg-red-500/5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-gray-300 text-sm">Storage Performance Tuning</span>
+                                    <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
+                                </div>
+                                <p class="text-xs text-gray-500">Ceph optimization guide</p>
+                            </a>
+                            <a href="#" class="doc-item block p-3 rounded-lg bg-white/5 hover:bg-red-500/5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-gray-300 text-sm">TCO Analysis</span>
+                                    <span class="text-xs text-red-500 bg-red-500/10 px-2 py-1 rounded">PDF</span>
+                                </div>
+                                <p class="text-xs text-gray-500">Cost comparison study</p>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- Newsletter / Updates -->
-    <section class="relative py-24 bg-gradient-to-b from-black to-gray-950">
-        <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center reveal">
-            <div class="glass-red rounded-3xl p-8 md:p-12 border border-red-500/20">
-                <h2 class="font-display text-3xl font-bold text-white mb-4">
-                    Stay <span class="gradient-text">Updated</span>
-                </h2>
-                <p class="text-gray-400 mb-8">
-                    Subscribe to receive notifications when new documentation, compatibility lists, and whitepapers are published.
-                </p>
-                <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-                    <input type="email" placeholder="Enter your email" class="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-red-500 transition-colors">
-                    <button type="submit" class="btn-primary px-6 py-3 rounded-lg font-semibold text-white whitespace-nowrap">
-                        Subscribe
-                    </button>
-                </form>
+    <!-- Hardware Compatibility Section -->
+    <section id="hardware" class="section-anchor relative py-16 bg-gradient-to-b from-black to-gray-950">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="glass rounded-3xl p-8 reveal">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center">
+                        <i data-lucide="server" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-display text-3xl font-bold text-white">Hardware Compatibility</h2>
+                        <p class="text-gray-400">Certified servers, storage arrays, and network equipment</p>
+                    </div>
+                </div>
+
+                <div class="mb-6 p-4 glass-red rounded-xl border border-red-500/20">
+                    <p class="text-gray-300 text-sm">
+                        <i data-lucide="info" class="w-4 h-4 inline mr-2 text-red-500"></i>
+                        All hardware tested and certified for production deployments with MetaVirt solutions.
+                    </p>
+                </div>
+
+                <!-- Servers -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-white mb-4">Certified Servers</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b border-white/10">
+                                    <th class="pb-3 text-gray-400 font-medium text-sm">Manufacturer</th>
+                                    <th class="pb-3 text-gray-400 font-medium text-sm">Model Series</th>
+                                    <th class="pb-3 text-gray-400 font-medium text-sm">Status</th>
+                                    <th class="pb-3 text-gray-400 font-medium text-sm">Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">Dell</td>
+                                    <td class="py-3 text-gray-300">PowerEdge R640/R650/R740/R750</td>
+                                    <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
+                                    <td class="py-3 text-gray-500 text-xs">iDRAC 8/9 supported</td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">HPE</td>
+                                    <td class="py-3 text-gray-300">ProLiant DL360/DL380 Gen10/Gen11</td>
+                                    <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
+                                    <td class="py-3 text-gray-500 text-xs">iLO 4/5/6 supported</td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">Lenovo</td>
+                                    <td class="py-3 text-gray-300">ThinkSystem SR650/SR630</td>
+                                    <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
+                                    <td class="py-3 text-gray-500 text-xs">XClarity integration</td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">Supermicro</td>
+                                    <td class="py-3 text-gray-300">Ultra SuperServer Series</td>
+                                    <td class="py-3"><span class="text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded text-xs">Compatible</span></td>
+                                    <td class="py-3 text-gray-500 text-xs">IPMI 2.0 required</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Storage Arrays -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-white mb-4">External Storage Arrays</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b border-white/10">
+                                    <th class="pb-3 text-gray-400 font-medium text-sm">Vendor</th>
+                                    <th class="pb-3 text-gray-400 font-medium text-sm">Product Line</th>
+                                    <th class="pb-3 text-gray-400 font-medium text-sm">Protocols</th>
+                                    <th class="pb-3 text-gray-400 font-medium text-sm">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">Dell EMC</td>
+                                    <td class="py-3 text-gray-300">PowerStore, Unity XT</td>
+                                    <td class="py-3 text-gray-400 text-xs">iSCSI, FC</td>
+                                    <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">NetApp</td>
+                                    <td class="py-3 text-gray-300">AFF, FAS Series</td>
+                                    <td class="py-3 text-gray-400 text-xs">NFS, iSCSI, FC</td>
+                                    <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">HPE</td>
+                                    <td class="py-3 text-gray-300">Alletra, Nimble</td>
+                                    <td class="py-3 text-gray-400 text-xs">iSCSI, FC</td>
+                                    <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">Pure Storage</td>
+                                    <td class="py-3 text-gray-300">FlashArray</td>
+                                    <td class="py-3 text-gray-400 text-xs">iSCSI, FC, NVMe-oF</td>
+                                    <td class="py-3"><span class="text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded text-xs">Compatible</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Network -->
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-4">Network Equipment</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="glass rounded-xl p-4">
+                            <h4 class="text-white font-semibold mb-2 text-sm">Top-of-Rack Switches</h4>
+                            <ul class="text-sm text-gray-400 space-y-1">
+                                <li>• Cisco Nexus 3000/9000 Series</li>
+                                <li>• Arista 7000 Series</li>
+                                <li>• Juniper QFX Series</li>
+                                <li>• Dell Z-Series</li>
+                            </ul>
+                        </div>
+                        <div class="glass rounded-xl p-4">
+                            <h4 class="text-white font-semibold mb-2 text-sm">Storage Networking</h4>
+                            <ul class="text-sm text-gray-400 space-y-1">
+                                <li>• Brocade G620/G630 FC Switches</li>
+                                <li>• Cisco MDS 9000 Series</li>
+                                <li>• 10/25/40/100GbE supported</li>
+                                <li>• NVMe-oF ready</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <p class="text-gray-400 text-sm mb-4">Don't see your hardware? Contact us for compatibility verification.</p>
+                    <a href="contact.html" class="btn-primary px-6 py-3 rounded-full font-semibold text-white inline-flex items-center gap-2">
+                        Request Compatibility Check
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guest OS Support Section -->
+    <section id="guestos" class="section-anchor relative py-16 bg-black">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="glass rounded-3xl p-8 reveal">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center">
+                        <i data-lucide="monitor" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-display text-3xl font-bold text-white">Guest OS Support List</h2>
+                        <p class="text-gray-400">Supported operating systems for virtual machines</p>
+                    </div>
+                </div>
+
+                <div class="mb-6 p-4 glass-red rounded-xl border border-red-500/20">
+                    <p class="text-gray-300 text-sm">
+                        <i data-lucide="info" class="w-4 h-4 inline mr-2 text-red-500"></i>
+                        All guest operating systems require VirtIO drivers for optimal performance. Windows guests require additional VirtIO-Serial and Balloon drivers.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Windows -->
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="monitor" class="w-5 h-5 text-blue-500"></i>
+                            Microsoft Windows
+                        </h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Windows Server 2022</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Fully Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Windows Server 2019</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Fully Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Windows Server 2016</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Windows 11</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Windows 10</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RHEL/CentOS -->
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="terminal" class="w-5 h-5 text-red-500"></i>
+                            RHEL & CentOS
+                        </h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">RHEL 9.x</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Fully Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">CentOS Stream 9</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Fully Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">RHEL 8.x</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Fully Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">CentOS 8</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">CentOS 7</span>
+                                <span class="text-xs text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded">Legacy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ubuntu/Debian -->
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="terminal" class="w-5 h-5 text-orange-500"></i>
+                            Ubuntu & Debian
+                        </h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Ubuntu 24.04 LTS</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Fully Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Ubuntu 22.04 LTS</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Fully Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Ubuntu 20.04 LTS</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Fully Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Debian 12</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Debian 11</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Other Linux -->
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="terminal" class="w-5 h-5 text-green-500"></i>
+                            Other Linux
+                        </h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">SUSE Linux Enterprise 15</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Oracle Linux 8/9</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">AlmaLinux 8/9</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Rocky Linux 8/9</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Containers -->
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="container" class="w-5 h-5 text-blue-400"></i>
+                            Container Platforms
+                        </h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Kubernetes (ZAKU)</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">1.24 - 1.28</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Docker CE</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">20.10+</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">containerd</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">1.6+</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FreeBSD/Other -->
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="server" class="w-5 h-5 text-yellow-500"></i>
+                            Other Operating Systems
+                        </h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">FreeBSD 14.x</span>
+                                <span class="text-xs text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded">Compatible</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">FreeBSD 13.x</span>
+                                <span class="text-xs text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded">Compatible</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-4 glass rounded-xl">
+                    <h4 class="text-white font-semibold mb-2 flex items-center gap-2">
+                        <i data-lucide="download" class="w-4 h-4 text-red-500"></i>
+                        Driver Downloads
+                    </h4>
+                    <p class="text-gray-400 text-sm mb-3">
+                        Download the latest VirtIO driver ISO for optimal guest performance.
+                    </p>
+                    <a href="#" class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white inline-flex items-center gap-2">
+                        Download VirtIO Drivers
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -935,7 +619,6 @@
             <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-2">
                     <div class="flex items-center gap-3 mb-6">
-                        <!-- FIXED: Logo URL -->
                         <img src="https://kimi-web-img.moonshot.cn/img/metavirt-logo.png" alt="MetaVirt" class="h-10 w-auto">
                         <div>
                             <h3 class="font-display font-bold text-xl text-white">MetaVirt</h3>
@@ -948,12 +631,11 @@
                 </div>
                 
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <h4 class="text-white font-semibold mb-4">Resources</h4>
                     <ul class="space-y-3 text-sm text-gray-400">
                         <li><a href="resources.html#documentation" class="hover:text-red-500 transition-colors">Documentation</a></li>
                         <li><a href="resources.html#hardware" class="hover:text-red-500 transition-colors">Hardware HCL</a></li>
                         <li><a href="resources.html#guestos" class="hover:text-red-500 transition-colors">Guest OS List</a></li>
-                        <li><a href="resources.html#api" class="hover:text-red-500 transition-colors">API Reference</a></li>
                     </ul>
                 </div>
                 
@@ -978,16 +660,18 @@
     <script>
         lucide.createIcons();
         
-        function showCategory(categoryId) {
-            // Hide all contents
-            document.querySelectorAll('.resource-content').forEach(el => el.classList.remove('active'));
-            // Remove active from all tabs
-            document.querySelectorAll('.category-tab').forEach(el => el.classList.remove('active'));
-            // Show selected content
-            document.getElementById(categoryId).classList.add('active');
-            // Add active to clicked tab
-            event.target.classList.add('active');
-        }
+        // Handle anchor links to scroll to sections
+        window.addEventListener('load', function() {
+            const hash = window.location.hash;
+            if (hash) {
+                const element = document.querySelector(hash);
+                if (element) {
+                    setTimeout(() => {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
+            }
+        });
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
