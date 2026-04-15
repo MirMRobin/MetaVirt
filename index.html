@@ -213,42 +213,46 @@
 </head>
 <body class="antialiased selection:bg-red-600 selection:text-white">
 
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex items-center justify-between">
-                <a href="index.html" class="flex items-center gap-3">
-                    <img src="last.png" alt="MetaVirt" class="h-10 w-auto">
-                </a>
+   <!-- Navigation -->
+<nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-5 lg:py-6">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 xl:px-12">
+        <div class="flex items-center justify-between">
+            <!-- Logo - Made bigger -->
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="nlogo.png" alt="MetaVirt" class="h-12 lg:h-14 w-auto">
+            </a>
+            
+            <!-- Nav Items - Made bigger -->
+            <div class="hidden md:flex items-center gap-10 lg:gap-12">
+                <a href="index.html" class="text-base lg:text-lg text-white font-medium border-b-2 border-red-600">Home</a>
+                <a href="solutions.html" class="text-base lg:text-lg text-gray-300 hover:text-white transition-colors">Solutions</a>
+                <a href="products.html" class="text-base lg:text-lg text-gray-300 hover:text-white transition-colors">Products</a>
+                <a href="about.html" class="text-base lg:text-lg text-gray-300 hover:text-white transition-colors">About</a>
+                <a href="contact.html" class="text-base lg:text-lg text-gray-300 hover:text-white transition-colors">Contact</a>
                 
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="index.html" class="text-sm text-white font-medium border-b-2 border-red-600">Home</a>
-                    <a href="solutions.html" class="text-sm text-gray-300 hover:text-white transition-colors">Solutions</a>
-                    <a href="products.html" class="text-sm text-gray-300 hover:text-white transition-colors">Products</a>
-                    <a href="about.html" class="text-sm text-gray-300 hover:text-white transition-colors">About</a>
-                    <a href="contact.html" class="text-sm text-gray-300 hover:text-white transition-colors">Contact</a>
-                    
-                    <!-- Resources Dropdown -->
-                    <div class="dropdown relative group">
-                    <a href="resources.html" class="text-sm text-gray-300 hover:text-white transition-colors flex items-center gap-1 py-1">
-                    Resources
-                    <i data-lucide="chevron-down" class="w-4 h-4"></i>
-                  </a>
-                  <div class="dropdown-menu absolute top-full left-0 mt-2 w-64 glass rounded-xl p-4 space-y-3">
-                    <a href="resources.html#documentation" class="block text-sm text-gray-300 hover:text-white transition-colors">Product Documentation</a>
-        <a href="resources.html#hardware" class="block text-sm text-gray-300 hover:text-white transition-colors">Hardware Compatibility</a>
-        <a href="resources.html#guestos" class="block text-sm text-gray-300 hover:text-white transition-colors">Guest OS Support List</a>
-    </div>
-</div>
-                    
-                    <a href="contact.html" class="btn-primary px-6 py-2.5 rounded-full text-sm font-semibold text-white">Request a Demo</a>
+                <!-- Resources Dropdown -->
+                <div class="dropdown relative group">
+                    <a href="resources.html" class="text-base lg:text-lg text-gray-300 hover:text-white transition-colors flex items-center gap-2 py-2">
+                        Resources
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </a>
+                    <div class="dropdown-menu absolute top-full left-0 mt-2 w-64 glass rounded-xl p-4 space-y-3">
+                        <a href="resources.html#documentation" class="block text-sm text-gray-300 hover:text-white transition-colors">Product Documentation</a>
+                        <a href="resources.html#hardware" class="block text-sm text-gray-300 hover:text-white transition-colors">Hardware Compatibility</a>
+                        <a href="resources.html#guestos" class="block text-sm text-gray-300 hover:text-white transition-colors">Guest OS Support List</a>
+                    </div>
                 </div>
                 
-                <button id="mobile-menu-btn" class="md:hidden text-white">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
+                <!-- CTA Button - Made bigger -->
+                <a href="contact.html" class="btn-primary px-8 lg:px-10 py-3 lg:py-4 rounded-full text-base lg:text-lg font-semibold text-white">Request a Demo</a>
             </div>
+            
+            <button id="mobile-menu-btn" class="md:hidden text-white">
+                <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
         </div>
+    </div>
+</nav>
         
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl border-b border-white/10">
