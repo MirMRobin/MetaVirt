@@ -366,123 +366,291 @@
                     </div>
                     <div>
                         <h2 class="font-display text-3xl font-bold text-white">Hardware Compatibility</h2>
-                        <p class="text-gray-400">Certified servers, storage arrays, and network equipment</p>
+                        <p class="text-gray-400">Certified servers, storage controllers, GPUs, NICs, and drives for MetaVirt solutions</p>
                     </div>
                 </div>
 
                 <div class="mb-6 p-4 glass-red rounded-xl border border-red-500/20">
                     <p class="text-gray-300 text-sm">
                         <i data-lucide="info" class="w-4 h-4 inline mr-2 text-red-500"></i>
-                        All hardware tested and certified for production deployments with MetaVirt solutions.
+                        All hardware tested and certified for production deployments with MetaVirt solutions. Compatibility verified across x86, ARM, and Hygon architectures.
                     </p>
                 </div>
 
-                <!-- Servers -->
-                <div class="mb-8">
-                    <h3 class="text-xl font-bold text-white mb-4">Certified Servers</h3>
+                <!-- Certified Servers -->
+                <div class="mb-10">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <i data-lucide="cpu" class="w-5 h-5 text-red-500"></i>
+                        Certified Servers
+                    </h3>
                     <div class="overflow-x-auto">
                         <table class="w-full text-left">
                             <thead>
                                 <tr class="border-b border-white/10">
                                     <th class="pb-3 text-gray-400 font-medium text-sm">Manufacturer</th>
                                     <th class="pb-3 text-gray-400 font-medium text-sm">Model Series</th>
+                                    <th class="pb-3 text-gray-400 font-medium text-sm">Platform</th>
                                     <th class="pb-3 text-gray-400 font-medium text-sm">Status</th>
-                                    <th class="pb-3 text-gray-400 font-medium text-sm">Notes</th>
                                 </tr>
                             </thead>
                             <tbody class="text-sm">
                                 <tr class="border-b border-white/5">
                                     <td class="py-3 text-white font-medium">Dell</td>
-                                    <td class="py-3 text-gray-300">PowerEdge R640/R650/R740/R750</td>
+                                    <td class="py-3 text-gray-300">PowerEdge R640/R650/R740/R750/R750xs/R7625</td>
+                                    <td class="py-3 text-gray-400 text-xs">Intel Xeon / AMD EPYC</td>
                                     <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
-                                    <td class="py-3 text-gray-500 text-xs">iDRAC 8/9 supported</td>
                                 </tr>
                                 <tr class="border-b border-white/5">
                                     <td class="py-3 text-white font-medium">HPE</td>
-                                    <td class="py-3 text-gray-300">ProLiant DL360/DL380 Gen10/Gen11</td>
+                                    <td class="py-3 text-gray-300">ProLiant DL360/DL380 Gen9/Gen10/Gen11, DL580, BL460c</td>
+                                    <td class="py-3 text-gray-400 text-xs">Intel Xeon / AMD EPYC</td>
                                     <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
-                                    <td class="py-3 text-gray-500 text-xs">iLO 4/5/6 supported</td>
                                 </tr>
                                 <tr class="border-b border-white/5">
                                     <td class="py-3 text-white font-medium">Lenovo</td>
-                                    <td class="py-3 text-gray-300">ThinkSystem SR650/SR630</td>
+                                    <td class="py-3 text-gray-300">ThinkSystem SR650/SR658/SR850/SR860, System x3650 M5</td>
+                                    <td class="py-3 text-gray-400 text-xs">Intel Xeon</td>
                                     <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
-                                    <td class="py-3 text-gray-500 text-xs">XClarity integration</td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">Cisco</td>
+                                    <td class="py-3 text-gray-300">UCS B200 M3/M4, C-Series</td>
+                                    <td class="py-3 text-gray-400 text-xs">Intel Xeon</td>
+                                    <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">H3C</td>
+                                    <td class="py-3 text-gray-300">UniServer R390X/R4900/R4700/R6700 G2/G3/G5/G6, UIS-Cell Series</td>
+                                    <td class="py-3 text-gray-400 text-xs">Intel Xeon / AMD EPYC / Hygon</td>
+                                    <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">Huawei</td>
+                                    <td class="py-3 text-gray-300">RH2288/RH1288 V3/V5, TaiShan 200/200K (ARM), Atlas 800</td>
+                                    <td class="py-3 text-gray-400 text-xs">Intel Xeon / Kunpeng-ARM</td>
+                                    <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">Inspur</td>
+                                    <td class="py-3 text-gray-300">NF5280M4/M5/M6, SA5212M4/M5, NF8480M5/M6, CS5280H/H2</td>
+                                    <td class="py-3 text-gray-400 text-xs">Intel Xeon / Hygon-C86</td>
+                                    <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
                                 </tr>
                                 <tr class="border-b border-white/5">
                                     <td class="py-3 text-white font-medium">Supermicro</td>
-                                    <td class="py-3 text-gray-300">Ultra SuperServer Series</td>
+                                    <td class="py-3 text-gray-300">SuperServer 2028/2029/4028/4048 Series, F619/F629</td>
+                                    <td class="py-3 text-gray-400 text-xs">Intel Xeon</td>
+                                    <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">xFusion</td>
+                                    <td class="py-3 text-gray-300">FusionServer 2288H V5/V6/V7, 1288H V6, CX5200 V5</td>
+                                    <td class="py-3 text-gray-400 text-xs">Intel Xeon</td>
+                                    <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">Sugon</td>
+                                    <td class="py-3 text-gray-300">I610/I620/I840-G20/G30, A620-G30, S640-G30</td>
+                                    <td class="py-3 text-gray-400 text-xs">Intel Xeon / AMD EPYC</td>
+                                    <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">ZTE</td>
+                                    <td class="py-3 text-gray-300">R5300/R5500/R5930 G2/G4/G4X, R8500 G4</td>
+                                    <td class="py-3 text-gray-400 text-xs">Intel Xeon / Hygon-C86</td>
+                                    <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">GreatWall</td>
+                                    <td class="py-3 text-gray-300">DF720/DF723/DF729, EF860 (Phytium-ARM)</td>
+                                    <td class="py-3 text-gray-400 text-xs">Intel Xeon / Phytium-ARM</td>
                                     <td class="py-3"><span class="text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded text-xs">Compatible</span></td>
-                                    <td class="py-3 text-gray-500 text-xs">IPMI 2.0 required</td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">PowerLeader</td>
+                                    <td class="py-3 text-gray-300">PR210K/PR212K/PR223K (Kunpeng), PR2510P/PR2710P</td>
+                                    <td class="py-3 text-gray-400 text-xs">Kunpeng-ARM / Intel Xeon</td>
+                                    <td class="py-3"><span class="text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded text-xs">Compatible</span></td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">Suma / Nettrix</td>
+                                    <td class="py-3 text-gray-300">R620/R6240/X640 G40, R5240/X7340/X7840H0 (Hygon)</td>
+                                    <td class="py-3 text-gray-400 text-xs">Intel Xeon / Hygon-C86</td>
+                                    <td class="py-3"><span class="text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded text-xs">Compatible</span></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <!-- Storage Arrays -->
-                <div class="mb-8">
-                    <h3 class="text-xl font-bold text-white mb-4">External Storage Arrays</h3>
+                <!-- Storage Controllers -->
+                <div class="mb-10">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <i data-lucide="hard-drive" class="w-5 h-5 text-red-500"></i>
+                        Storage Controllers
+                    </h3>
                     <div class="overflow-x-auto">
                         <table class="w-full text-left">
                             <thead>
                                 <tr class="border-b border-white/10">
                                     <th class="pb-3 text-gray-400 font-medium text-sm">Vendor</th>
-                                    <th class="pb-3 text-gray-400 font-medium text-sm">Product Line</th>
-                                    <th class="pb-3 text-gray-400 font-medium text-sm">Protocols</th>
-                                    <th class="pb-3 text-gray-400 font-medium text-sm">Status</th>
+                                    <th class="pb-3 text-gray-400 font-medium text-sm">Controller Model</th>
+                                    <th class="pb-3 text-gray-400 font-medium text-sm">RAID Levels</th>
+                                    <th class="pb-3 text-gray-400 font-medium text-sm">Chipset</th>
                                 </tr>
                             </thead>
                             <tbody class="text-sm">
                                 <tr class="border-b border-white/5">
-                                    <td class="py-3 text-white font-medium">Dell EMC</td>
-                                    <td class="py-3 text-gray-300">PowerStore, Unity XT</td>
-                                    <td class="py-3 text-gray-400 text-xs">iSCSI, FC</td>
-                                    <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
-                                </tr>
-                                <tr class="border-b border-white/5">
-                                    <td class="py-3 text-white font-medium">NetApp</td>
-                                    <td class="py-3 text-gray-300">AFF, FAS Series</td>
-                                    <td class="py-3 text-gray-400 text-xs">NFS, iSCSI, FC</td>
-                                    <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
+                                    <td class="py-3 text-white font-medium">Dell</td>
+                                    <td class="py-3 text-gray-300">PERC H755, H750, H745, H740P, H730P, H330, H355, H345, BOSS-S1</td>
+                                    <td class="py-3 text-gray-400 text-xs">0,1,10,5,50,6,60 / JBOD</td>
+                                    <td class="py-3 text-gray-500 text-xs">LSI SAS 3916/3516/3508/3108/2008/3816/3416, Marvell 88SE9230</td>
                                 </tr>
                                 <tr class="border-b border-white/5">
                                     <td class="py-3 text-white font-medium">HPE</td>
-                                    <td class="py-3 text-gray-300">Alletra, Nimble</td>
-                                    <td class="py-3 text-gray-400 text-xs">iSCSI, FC</td>
-                                    <td class="py-3"><span class="text-green-500 bg-green-500/10 px-2 py-1 rounded text-xs">Certified</span></td>
+                                    <td class="py-3 text-gray-300">Smart Array P440ar, P420i, P410i, P244br, P220i, MR416i</td>
+                                    <td class="py-3 text-gray-400 text-xs">0,1,10,5,50,6,60</td>
+                                    <td class="py-3 text-gray-500 text-xs">HPE Smart Array Gen8/Gen9/Gen10</td>
                                 </tr>
                                 <tr class="border-b border-white/5">
-                                    <td class="py-3 text-white font-medium">Pure Storage</td>
-                                    <td class="py-3 text-gray-300">FlashArray</td>
-                                    <td class="py-3 text-gray-400 text-xs">iSCSI, FC, NVMe-oF</td>
-                                    <td class="py-3"><span class="text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded text-xs">Compatible</span></td>
+                                    <td class="py-3 text-white font-medium">H3C / Huawei / Inspur</td>
+                                    <td class="py-3 text-gray-300">AVAGO MR9460-16i/8i, MR9361-8i, MR9440-8i, MR9364-8i</td>
+                                    <td class="py-3 text-gray-400 text-xs">0,1,10,5,50,6,60 / 0,1,10</td>
+                                    <td class="py-3 text-gray-500 text-xs">LSI SAS 3516/3508/3108/3408/3808</td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">Lenovo</td>
+                                    <td class="py-3 text-gray-300">930-16i/8i, 730-8i, 530-16i/8i, 720ix, ServeRAID-M5210</td>
+                                    <td class="py-3 text-gray-400 text-xs">0,1,10,5,50,6,60</td>
+                                    <td class="py-3 text-gray-500 text-xs">LSI SAS 3516/3508/3108/3416/3408</td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-white font-medium">Supermicro</td>
+                                    <td class="py-3 text-gray-300">AVAGO SMC3108, MR9361-16i</td>
+                                    <td class="py-3 text-gray-400 text-xs">0,1,10,5,50,6,60</td>
+                                    <td class="py-3 text-gray-500 text-xs">Broadcom 3108 / LSI SAS 3316</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <!-- Network -->
-                <div>
-                    <h3 class="text-xl font-bold text-white mb-4">Network Equipment</h3>
-                    <div class="grid md:grid-cols-2 gap-4">
+                <!-- GPU Compatibility -->
+                <div class="mb-10">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <i data-lucide="gpu" class="w-5 h-5 text-red-500"></i>
+                        GPU Compatibility
+                    </h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                         <div class="glass rounded-xl p-4">
-                            <h4 class="text-white font-semibold mb-2 text-sm">Top-of-Rack Switches</h4>
+                            <h4 class="text-white font-semibold mb-2 text-sm">NVIDIA Data Center</h4>
                             <ul class="text-sm text-gray-400 space-y-1">
-                                <li>• Cisco Nexus 3000/9000 Series</li>
-                                <li>• Arista 7000 Series</li>
-                                <li>• Juniper QFX Series</li>
-                                <li>• Dell Z-Series</li>
+                                <li>• H200 NVL, H100 NVL, H100, H800 (HBM3e/HBM2e)</li>
+                                <li>• A100 80GB, A40, A30, A16, A10, A2</li>
+                                <li>• L40S, L40, L20, L4, L2</li>
+                                <li>• RTX 6000 Ada, RTX 5000 Ada, RTX 4000 Ada</li>
+                            </ul>
+                            <div class="mt-2 flex gap-2">
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">GPU Passthrough</span>
+                                <span class="text-xs text-blue-500 bg-blue-500/10 px-2 py-1 rounded">vGPU</span>
+                            </div>
+                        </div>
+                        <div class="glass rounded-xl p-4">
+                            <h4 class="text-white font-semibold mb-2 text-sm">NVIDIA RTX Professional</h4>
+                            <ul class="text-sm text-gray-400 space-y-1">
+                                <li>• RTX PRO 6000 Blackwell (96GB GDDR7)</li>
+                                <li>• RTX PRO 5000/4500/4000 Blackwell</li>
+                                <li>• RTX A6000, RTX A5500, RTX A5000</li>
+                                <li>• RTX A4500, RTX A4000, RTX A2000</li>
+                            </ul>
+                            <div class="mt-2 flex gap-2">
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">GPU Passthrough</span>
+                                <span class="text-xs text-blue-500 bg-blue-500/10 px-2 py-1 rounded">vGPU</span>
+                            </div>
+                        </div>
+                        <div class="glass rounded-xl p-4">
+                            <h4 class="text-white font-semibold mb-2 text-sm">AMD Professional</h4>
+                            <ul class="text-sm text-gray-400 space-y-1">
+                                <li>• W6800, W9100, W8100, W7100, W5700</li>
+                                <li>• V620, V710, V520 (vGPU support varies)</li>
+                                <li>• S7150 X2 (vGPU certified), S7150</li>
+                                <li>• Radeon Pro VII, Vega Frontier Edition</li>
+                            </ul>
+                            <div class="mt-2 flex gap-2">
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">GPU Passthrough</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NIC Compatibility -->
+                <div class="mb-10">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <i data-lucide="network" class="w-5 h-5 text-red-500"></i>
+                        Network Interface Cards (NIC)
+                    </h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="glass rounded-xl p-4">
+                            <h4 class="text-white font-semibold mb-2 text-sm">Intel 10/25GbE</h4>
+                            <ul class="text-sm text-gray-400 space-y-1">
+                                <li>• Intel X710 (SFP+/QSFP 10Gb)</li>
+                                <li>• Intel XXV710 (SFP+/QSFP 10/25Gb)</li>
+                                <li>• Intel X550/X550T (10Gb Base-T)</li>
+                                <li>• Intel X540-AT2 (10Gb Base-T)</li>
+                                <li>• Intel X520, E810-XVV, X722 (10/25Gb)</li>
+                                <li>• Intel 82599ES (SFP+ 10Gb)</li>
                             </ul>
                         </div>
                         <div class="glass rounded-xl p-4">
-                            <h4 class="text-white font-semibold mb-2 text-sm">Storage Networking</h4>
+                            <h4 class="text-white font-semibold mb-2 text-sm">Broadcom / Mellanox</h4>
                             <ul class="text-sm text-gray-400 space-y-1">
-                                <li>• Brocade G620/G630 FC Switches</li>
-                                <li>• Cisco MDS 9000 Series</li>
-                                <li>• 10/25/40/100GbE supported</li>
-                                <li>• NVMe-oF ready</li>
+                                <li>• Broadcom BCM57414 (10/25Gb SFP+)</li>
+                                <li>• Broadcom BCM57412/BCM57810 (10Gb)</li>
+                                <li>• Broadcom BCM57840 (10/25Gb)</li>
+                                <li>• Mellanox CX-6 Lx, CX-5, CX-4 Lx (10/25Gb)</li>
+                                <li>• Mellanox CX-3 Pro (10Gb)</li>
+                                <li>• QLogic QL41000 (10/25Gb SFP+)</li>
+                            </ul>
+                        </div>
+                        <div class="glass rounded-xl p-4">
+                            <h4 class="text-white font-semibold mb-2 text-sm">1GbE & Onboard</h4>
+                            <ul class="text-sm text-gray-400 space-y-1">
+                                <li>• Intel i350 (RJ45 1Gb)</li>
+                                <li>• Intel i210, 82580, 82576, 82574L</li>
+                                <li>• Broadcom BCM5720/BCM5719 (RJ45 1Gb)</li>
+                                <li>• Huawei TM280/Hi1822 (10/25Gb)</li>
+                                <li>• Huawei IN300 (Kunpeng onboard)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SSD / HDD -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <i data-lucide="disc" class="w-5 h-5 text-red-500"></i>
+                        Certified Drives
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="glass rounded-xl p-4">
+                            <h4 class="text-white font-semibold mb-2 text-sm">SATA / SAS SSDs</h4>
+                            <ul class="text-sm text-gray-400 space-y-1">
+                                <li>• Intel S4610/S4620/S4510/S4520 (480GB–7.68TB)</li>
+                                <li>• Samsung PM883/PM893/PM897/SM883 (240GB–7.68TB)</li>
+                                <li>• Samsung PM1643a (1.92TB–3.84TB SAS)</li>
+                                <li>• Micron 5300 PRO/MAX, 5200 (480GB–1.92TB)</li>
+                                <li>• Kioxia PM6/PM7/RM5, SK Hynix SE5100</li>
+                                <li>• Huawei ES3510S V5 / ES3521A V6</li>
+                                <li>• SSSTC ER2, YANGTZE MEMORY SE005</li>
+                            </ul>
+                        </div>
+                        <div class="glass rounded-xl p-4">
+                            <h4 class="text-white font-semibold mb-2 text-sm">HDDs</h4>
+                            <ul class="text-sm text-gray-400 space-y-1">
+                                <li>• 2.5" SAS: 300GB–2.4TB (10K/15K RPM)</li>
+                                <li>• 3.5" SAS/SATA: 1TB–18TB (7.2K RPM)</li>
+                                <li>• 2.5" SATA: 1TB–2TB (7.2K RPM)</li>
+                                <li>• NVMe U.2: Samsung MZQL21T9HCJR (PCIe 4.0)</li>
                             </ul>
                         </div>
                     </div>
@@ -509,23 +677,23 @@
                     </div>
                     <div>
                         <h2 class="font-display text-3xl font-bold text-white">Guest OS Support List</h2>
-                        <p class="text-gray-400">Supported operating systems for virtual machines</p>
+                        <p class="text-gray-400">Supported operating systems for virtual machines and migration sources</p>
                     </div>
                 </div>
 
                 <div class="mb-6 p-4 glass-red rounded-xl border border-red-500/20">
                     <p class="text-gray-300 text-sm">
                         <i data-lucide="info" class="w-4 h-4 inline mr-2 text-red-500"></i>
-                        All guest operating systems require VirtIO drivers for optimal performance. Windows guests require additional VirtIO-Serial and Balloon drivers.
+                        All guest operating systems require VirtIO drivers for optimal performance. Windows guests require additional VirtIO-Serial and Balloon drivers. Linux guests use built-in VirtIO support from kernel 2.6.25+.
                     </p>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Windows -->
+                    <!-- Windows Server -->
                     <div class="glass rounded-xl p-6">
                         <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
                             <i data-lucide="monitor" class="w-5 h-5 text-blue-500"></i>
-                            Microsoft Windows
+                            Microsoft Windows Server
                         </h3>
                         <div class="space-y-2">
                             <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
@@ -538,20 +706,54 @@
                             </div>
                             <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
                                 <span class="text-gray-300 text-sm">Windows Server 2016</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Fully Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Windows Server 2012 R2</span>
                                 <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
                             </div>
                             <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
-                                <span class="text-gray-300 text-sm">Windows 11</span>
+                                <span class="text-gray-300 text-sm">Windows Server 2012</span>
                                 <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
                             </div>
                             <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
-                                <span class="text-gray-300 text-sm">Windows 10</span>
-                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                                <span class="text-gray-300 text-sm">Windows Server 2008 R2</span>
+                                <span class="text-xs text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded">Legacy</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Windows Server 2008 / 2003 SP2</span>
+                                <span class="text-xs text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded">Legacy</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- RHEL/CentOS -->
+                    <!-- Windows Client -->
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="laptop" class="w-5 h-5 text-blue-400"></i>
+                            Microsoft Windows Client
+                        </h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Windows 11 (64-bit)</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Fully Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Windows 10 (32/64-bit)</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Windows 8 / 8.1</span>
+                                <span class="text-xs text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded">Compatible</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Windows 7 (x86/x64)</span>
+                                <span class="text-xs text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded">Compatible</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RHEL / CentOS -->
                     <div class="glass rounded-xl p-6">
                         <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
                             <i data-lucide="terminal" class="w-5 h-5 text-red-500"></i>
@@ -563,25 +765,33 @@
                                 <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Fully Supported</span>
                             </div>
                             <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
-                                <span class="text-gray-300 text-sm">CentOS Stream 9</span>
-                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Fully Supported</span>
-                            </div>
-                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
                                 <span class="text-gray-300 text-sm">RHEL 8.x</span>
                                 <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Fully Supported</span>
                             </div>
                             <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
-                                <span class="text-gray-300 text-sm">CentOS 8</span>
+                                <span class="text-gray-300 text-sm">RHEL 7.2 – 7.9</span>
                                 <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
                             </div>
                             <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
-                                <span class="text-gray-300 text-sm">CentOS 7</span>
+                                <span class="text-gray-300 text-sm">RHEL 6.2 – 6.10</span>
+                                <span class="text-xs text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded">Legacy</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">RHEL 5.5 / 5.7 / 5.8 / 5.11</span>
+                                <span class="text-xs text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded">Legacy</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">CentOS Stream 9 / CentOS 8.0–8.5, 8.9</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">CentOS 7.0 – 7.9 / CentOS 6.x / CentOS 5.3–5.11</span>
                                 <span class="text-xs text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded">Legacy</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Ubuntu/Debian -->
+                    <!-- Ubuntu / Debian -->
                     <div class="glass rounded-xl p-6">
                         <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
                             <i data-lucide="terminal" class="w-5 h-5 text-orange-500"></i>
@@ -605,17 +815,17 @@
                                 <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
                             </div>
                             <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
-                                <span class="text-gray-300 text-sm">Debian 11</span>
+                                <span class="text-gray-300 text-sm">Debian 11.4 / 10.02 / 9.6</span>
                                 <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Other Linux -->
+                    <!-- Enterprise Linux -->
                     <div class="glass rounded-xl p-6">
                         <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
                             <i data-lucide="terminal" class="w-5 h-5 text-green-500"></i>
-                            Other Linux
+                            Enterprise Linux
                         </h3>
                         <div class="space-y-2">
                             <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
@@ -623,21 +833,59 @@
                                 <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
                             </div>
                             <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
-                                <span class="text-gray-300 text-sm">Oracle Linux 8/9</span>
+                                <span class="text-gray-300 text-sm">Oracle Linux 8 / 9 (UEK & RHCK)</span>
                                 <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
                             </div>
                             <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
-                                <span class="text-gray-300 text-sm">AlmaLinux 8/9</span>
+                                <span class="text-gray-300 text-sm">Oracle Linux 5.11 / 6.6–6.10 / 7.3–7.9</span>
                                 <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
                             </div>
                             <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
-                                <span class="text-gray-300 text-sm">Rocky Linux 8/9</span>
+                                <span class="text-gray-300 text-sm">AlmaLinux 8.8 / 8.9 / 9.x</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Rocky Linux 8.8 / 8.9 / 9.x</span>
                                 <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Containers -->
+                    <!-- Domestic & Specialized Linux -->
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="globe" class="w-5 h-5 text-yellow-500"></i>
+                            Domestic & Specialized Linux
+                        </h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Kylin V6 / V7 / V10 / V10 SP1</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">UOS (UnionTech) V20</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">openEuler 20.03–24.03 LTS</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Anolis OS 7.9 / 8.6 / 8.8</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">BCLinux Euler 21.10 LTS SP2</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Asianux 3 SP2–SP4 / 4.5</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Container Platforms -->
                     <div class="glass rounded-xl p-6">
                         <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
                             <i data-lucide="container" class="w-5 h-5 text-blue-400"></i>
@@ -646,7 +894,7 @@
                         <div class="space-y-2">
                             <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
                                 <span class="text-gray-300 text-sm">Kubernetes (ZAKU)</span>
-                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">1.24 - 1.28</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">1.24 – 1.28</span>
                             </div>
                             <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
                                 <span class="text-gray-300 text-sm">Docker CE</span>
@@ -659,34 +907,75 @@
                         </div>
                     </div>
 
-                    <!-- FreeBSD/Other -->
-                    <div class="glass rounded-xl p-6">
+                    <!-- ARM / Other -->
+                    <div class="glass rounded-xl p-6 md:col-span-2 lg:col-span-2">
                         <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                            <i data-lucide="server" class="w-5 h-5 text-yellow-500"></i>
-                            Other Operating Systems
+                            <i data-lucide="server" class="w-5 h-5 text-purple-500"></i>
+                            ARM & Other Architectures
                         </h3>
-                        <div class="space-y-2">
+                        <div class="grid md:grid-cols-2 gap-3">
                             <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
-                                <span class="text-gray-300 text-sm">FreeBSD 14.x</span>
+                                <span class="text-gray-300 text-sm">UnionTechOS V20 ARM (Kunpeng 920)</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">Kylin V10 ARM (Kunpeng 920)</span>
+                                <span class="text-xs text-green-500 bg-green-500/10 px-2 py-1 rounded">Supported</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
+                                <span class="text-gray-300 text-sm">FreeBSD 14.x / 13.x</span>
                                 <span class="text-xs text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded">Compatible</span>
                             </div>
                             <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
-                                <span class="text-gray-300 text-sm">FreeBSD 13.x</span>
+                                <span class="text-gray-300 text-sm">openSUSE / Fedora (generic)</span>
                                 <span class="text-xs text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded">Compatible</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="mt-8 p-4 glass rounded-xl">
-                    <h4 class="text-white font-semibold mb-2 flex items-center gap-2">
-                        <i data-lucide="download" class="w-4 h-4 text-red-500"></i>
-                        Driver Downloads
+                <!-- File System Compatibility -->
+                <div class="mt-8 glass rounded-xl p-6">
+                    <h4 class="text-white font-semibold mb-4 flex items-center gap-2">
+                        <i data-lucide="folder-tree" class="w-4 h-4 text-red-500"></i>
+                        File System Compatibility
                     </h4>
-                    <p class="text-gray-400 text-sm mb-3">
-                        Download the latest VirtIO driver ISO for optimal guest performance.
-                    </p>
-                    <a href="#" class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white inline-flex items-center gap-2">
+                    <div class="grid md:grid-cols-4 gap-4 text-sm">
+                        <div class="p-3 rounded-lg bg-white/5">
+                            <span class="text-white font-medium block mb-1">Windows</span>
+                            <span class="text-gray-400">NTFS ✔</span><br>
+                            <span class="text-gray-400">FAT32 ✔</span>
+                        </div>
+                        <div class="p-3 rounded-lg bg-white/5">
+                            <span class="text-white font-medium block mb-1">Linux Standard</span>
+                            <span class="text-gray-400">ext4 ✔</span><br>
+                            <span class="text-gray-400">XFS ✔</span><br>
+                            <span class="text-gray-400">ext2 ✔</span>
+                        </div>
+                        <div class="p-3 rounded-lg bg-white/5">
+                            <span class="text-white font-medium block mb-1">Linux Advanced</span>
+                            <span class="text-gray-400">Btrfs ✔ (Snapshot)</span><br>
+                            <span class="text-gray-400">ext3 ✔ (Non-Snapshot)</span>
+                        </div>
+                        <div class="p-3 rounded-lg bg-white/5">
+                            <span class="text-white font-medium block mb-1">Notes</span>
+                            <span class="text-gray-400 text-xs">Btrfs/ext3 snapshot support requires Antenna + TrekerLite components.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Driver Downloads -->
+                <div class="mt-6 p-4 glass rounded-xl flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div>
+                        <h4 class="text-white font-semibold mb-1 flex items-center gap-2">
+                            <i data-lucide="download" class="w-4 h-4 text-red-500"></i>
+                            Driver Downloads
+                        </h4>
+                        <p class="text-gray-400 text-sm">
+                            Download the latest VirtIO driver ISO for optimal guest performance.
+                        </p>
+                    </div>
+                    <a href="#" class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-white inline-flex items-center gap-2 whitespace-nowrap">
                         Download VirtIO Drivers
                         <i data-lucide="download" class="w-4 h-4"></i>
                     </a>
