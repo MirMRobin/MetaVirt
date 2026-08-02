@@ -1,995 +1,614 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MetaVirt - Enterprise-grade Private Cloud | Bangladesh</title>
-    <meta name="description" content="MetaVirt delivers enterprise-grade private cloud infrastructure, virtualization, storage, backup, and container solutions for Bangladeshi enterprises. Software-only, hardware freedom.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        :root {
-            --primary-red: #dc2626;
-            --deep-red: #991b1b;
-            --accent-crimson: #ef4444;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #050505;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-        
-        .font-display {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #ffffff 0%, #fca5a5 50%, #dc2626 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .gradient-text-red {
-            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .bg-gradient-radial {
-            background: radial-gradient(ellipse at center, rgba(220, 38, 38, 0.15) 0%, transparent 70%);
-        }
-        
-        .bg-gradient-mesh {
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(220, 38, 38, 0.3) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(0, 0, 0, 1) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(153, 27, 27, 0.2) 0px, transparent 50%),
-                radial-gradient(at 0% 100%, rgba(0, 0, 0, 1) 0px, transparent 50%);
-        }
-        
-        .glass {
-            background: rgba(20, 20, 20, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .glass-red {
-            background: rgba(220, 38, 38, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(220, 38, 38, 0.2);
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(220, 38, 38, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(220, 38, 38, 0.6); }
-        }
-        
-        @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .animate-pulse-glow {
-            animation: pulse-glow 3s ease-in-out infinite;
-        }
-        
-        .animate-gradient {
-            background-size: 200% 200%;
-            animation: gradient-shift 8s ease infinite;
-        }
-        
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* STANDARD SCROLLBAR - No custom styling */
-        ::-webkit-scrollbar {
-            width: auto;
-        }
-        
-        .grid-pattern {
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-        
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
-        }
-        
-        .feature-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(220, 38, 38, 0.5);
-            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.2);
-        }
-        
-        /* SMART NAVBAR - Transparent to Blur transition */
-        #navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            background: transparent;
-            backdrop-filter: blur(0px);
-            border-bottom: 1px solid transparent;
-        }
-        
-        #navbar.scrolled {
-            background: rgba(5, 5, 5, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        #navbar.scrolled-more {
-            background: rgba(5, 5, 5, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .product-card {
-            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(0, 0, 0, 0.5) 100%);
-            border: 1px solid rgba(220, 38, 38, 0.2);
-            transition: all 0.4s ease;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(220, 38, 38, 0.5);
-            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.15);
-        }
-        
-        .solution-card {
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .solution-card:hover {
-            border-color: rgba(220, 38, 38, 0.4);
-            background: rgba(220, 38, 38, 0.05);
-        }
-        
-        /* FIXED DROPDOWN STYLES */
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-menu {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.2s ease;
-            pointer-events: none;
-        }
-
-        .dropdown:hover .dropdown-menu,
-        .dropdown-menu:hover {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-
-        section:first-of-type {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .stat-counter {
-            font-variant-numeric: tabular-nums;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MetaVirt — Software-Defined Infrastructure for Bangladesh</title>
+  <meta name="description" content="MetaVirt delivers enterprise-grade private cloud, virtualization, storage, backup, and container solutions for Bangladeshi enterprises. Software-only, hardware freedom.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="last.png">
 </head>
-<body class="antialiased selection:bg-red-600 selection:text-white">
+<body>
 
-    <!-- Navigation - Smart Transparent to Blur -->
-    <nav id="navbar" class="py-4">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex items-center justify-between h-14">
-                <a href="index.html" class="flex items-center gap-3 z-[101] relative">
-                    <img src="last.png" alt="MetaVirt" class="h-10 w-auto">
-                </a>
-                
-                <div class="hidden md:flex items-center gap-8 h-full">
-                    <a href="index.html" class="text-sm text-white font-medium border-b-2 border-red-600">Home</a>
-                    
-                    <!-- Solutions -->
-                    <a href="solutions.html" class="text-sm text-gray-300 hover:text-white transition-colors flex items-center h-full">Solutions</a>
-                    
-                    <!-- Products Dropdown -->
-                    <div class="dropdown relative group h-full flex items-center">
-                        <a href="products.html" class="text-sm text-gray-300 hover:text-white transition-colors flex items-center gap-1 h-full py-4">
-                            Products
-                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
-                        </a>
-                        <div class="dropdown-menu absolute top-full left-0 pt-4 w-56 z-[110]">
-                            <div class="rounded-xl p-4 space-y-2 shadow-2xl shadow-black/50 bg-[rgba(20,20,20,0.98)] border border-white/10">
-                                <a href="products.html#cloud" class="block text-sm text-gray-300 hover:text-white hover:bg-red-600/10 rounded-lg px-3 py-2 transition-all">ZStack Cloud</a>
-                                <a href="products.html#zsphere" class="block text-sm text-gray-300 hover:text-white hover:bg-red-600/10 rounded-lg px-3 py-2 transition-all">ZStack ZSphere</a>
-                                <a href="products.html#storage" class="block text-sm text-gray-300 hover:text-white hover:bg-red-600/10 rounded-lg px-3 py-2 transition-all">Storage Solutions</a>
-                                <a href="products.html#zaku" class="block text-sm text-gray-300 hover:text-white hover:bg-red-600/10 rounded-lg px-3 py-2 transition-all">ZStack ZAKU</a>
-                                <a href="products.html#vinchin" class="block text-sm text-gray-300 hover:text-white hover:bg-red-600/10 rounded-lg px-3 py-2 transition-all">Vinchin Backup</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <a href="about.html" class="text-sm text-gray-300 hover:text-white transition-colors flex items-center h-full">About</a>
-                    
-                    <!-- Partners Dropdown -->
-                    <div class="dropdown relative group h-full flex items-center">
-                        <a href="partners.html" class="text-sm text-gray-300 hover:text-white transition-colors flex items-center gap-1 h-full py-4">
-                            Partners
-                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
-                        </a>
-                        <div class="dropdown-menu absolute top-full left-0 pt-4 w-56 z-[110]">
-                            <div class="rounded-xl p-4 space-y-2 shadow-2xl shadow-black/50 bg-[rgba(20,20,20,0.98)] border border-white/10">
-                                <a href="partners.html#our-partners" class="block text-sm text-gray-300 hover:text-white hover:bg-red-600/10 rounded-lg px-3 py-2 transition-all">Our Partners</a>
-                                <a href="partners.html#become-partner" class="block text-sm text-gray-300 hover:text-white hover:bg-red-600/10 rounded-lg px-3 py-2 transition-all">Become a Partner</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <a href="contact.html" class="text-sm text-gray-300 hover:text-white transition-colors flex items-center h-full">Contact</a>
-                    
-                    <!-- Resources Dropdown -->
-                    <div class="dropdown relative group h-full flex items-center">
-                        <a href="resources.html" class="text-sm text-gray-300 hover:text-white transition-colors flex items-center gap-1 h-full py-4">
-                            Resources
-                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
-                        </a>
-                        <div class="dropdown-menu absolute top-full left-0 pt-4 w-64 z-[110]">
-                            <div class="rounded-xl p-4 space-y-2 shadow-2xl shadow-black/50 bg-[rgba(20,20,20,0.98)] border border-white/10">
-                                <a href="resources.html#documentation" class="block text-sm text-gray-300 hover:text-white hover:bg-red-600/10 rounded-lg px-3 py-2 transition-all">Product Documentation</a>
-                                <a href="resources.html#hardware" class="block text-sm text-gray-300 hover:text-white hover:bg-red-600/10 rounded-lg px-3 py-2 transition-all">Hardware Compatibility</a>
-                                <a href="resources.html#guestos" class="block text-sm text-gray-300 hover:text-white hover:bg-red-600/10 rounded-lg px-3 py-2 transition-all">Guest OS Support List</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <a href="contact.html" class="btn-primary px-6 py-2.5 rounded-full text-sm font-semibold text-white flex items-center h-full">Request a Demo</a>
-                </div>
-                
-                <button id="mobile-menu-btn" class="md:hidden text-white z-[101] relative h-10 w-10 flex items-center justify-center">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-[rgba(5,5,5,0.98)] backdrop-blur-xl border-b border-white/10 z-[110]">
-            <div class="px-6 py-4 space-y-4">
-                <a href="index.html" class="block text-white font-medium py-2">Home</a>
-                <a href="solutions.html" class="block text-gray-300 hover:text-white py-2">Solutions</a>
-                
-                <div class="border-t border-white/10 pt-4">
-                    <p class="text-xs text-gray-500 uppercase mb-2">Products</p>
-                    <a href="products.html" class="block text-white font-medium mb-2 py-1">All Products</a>
-                    <a href="products.html#cloud" class="block text-sm text-gray-400 py-1 pl-4 hover:text-white">ZStack Cloud</a>
-                    <a href="products.html#zsphere" class="block text-sm text-gray-400 py-1 pl-4 hover:text-white">ZStack ZSphere</a>
-                    <a href="products.html#storage" class="block text-sm text-gray-400 py-1 pl-4 hover:text-white">Storage Solutions</a>
-                    <a href="products.html#zaku" class="block text-sm text-gray-400 py-1 pl-4 hover:text-white">ZStack ZAKU</a>
-                    <a href="products.html#vinchin" class="block text-sm text-gray-400 py-1 pl-4 hover:text-white">Vinchin Backup</a>
-                </div>
-                
-                <a href="about.html" class="block text-gray-300 hover:text-white py-2">About</a>
-                
-                <div class="border-t border-white/10 pt-4">
-                    <p class="text-xs text-gray-500 uppercase mb-2">Partners</p>
-                    <a href="partners.html" class="block text-white font-medium mb-2 py-1">Partners Overview</a>
-                    <a href="partners.html#our-partners" class="block text-sm text-gray-400 py-1 pl-4 hover:text-white">Our Partners</a>
-                    <a href="partners.html#become-partner" class="block text-sm text-gray-400 py-1 pl-4 hover:text-white">Become a Partner</a>
-                </div>
-                
-                <a href="contact.html" class="block text-gray-300 hover:text-white py-2">Contact</a>
-                
-                <div class="border-t border-white/10 pt-4">
-                    <p class="text-xs text-gray-500 uppercase mb-2">Resources</p>
-                    <a href="resources.html" class="block text-white font-medium mb-2 py-1">All Resources</a>
-                    <a href="resources.html#documentation" class="block text-sm text-gray-400 py-1 pl-4 hover:text-white">Product Documentation</a>
-                    <a href="resources.html#hardware" class="block text-sm text-gray-400 py-1 pl-4 hover:text-white">Hardware Compatibility</a>
-                    <a href="resources.html#guestos" class="block text-sm text-gray-400 py-1 pl-4 hover:text-white">Guest OS Support List</a>
-                </div>
-                
-                <a href="contact.html" class="block text-red-500 font-semibold pt-4 border-t border-white/10 py-2">Request a Demo</a>
-            </div>
-        </div>
-    </nav>
+  <header class="site-head">
+    <div class="wrap site-head__bar">
+      <a href="index.html" class="brand">
+        <img src="last.png" alt="MetaVirt">
+      </a>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div class="absolute inset-0 bg-gradient-mesh"></div>
-        <div class="absolute inset-0 bg-gradient-radial"></div>
-        <div class="absolute inset-0 grid-pattern opacity-30"></div>
-        
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-3xl animate-float"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-900/20 rounded-full blur-3xl animate-float" style="animation-delay: 3s;"></div>
-        
-        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
-            <div class="reveal active">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-red mb-8">
-                    <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                    <span class="text-sm text-red-200 font-medium">Software-Defined Infrastructure</span>
-                </div>
-                
-                <h1 class="font-display font-bold text-5xl md:text-7xl lg:text-8xl leading-tight mb-6">
-                    <span class="block text-white">Build Your Private</span>
-                    <span class="block gradient-text">Cloud with</span>
-                    <span class="block text-white">Enterprise Software</span>
-                </h1>
-                
-                <p class="mt-6 text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                    MetaVirt helps organizations modernize infrastructure with virtualization, cloud, storage, backup, and Kubernetes platforms—running on your hardware, under your control.
-                </p>
-                
-                <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="contact.html" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold text-white inline-flex items-center gap-2 group">
-                        Talk to an Expert
-                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                    <a href="products.html" class="px-8 py-4 rounded-full text-lg font-semibold text-white border border-white/20 hover:bg-white/5 transition-all inline-flex items-center gap-2">
-                        Explore Products
-                    </a>
-                </div>
-            </div>
-            
-            <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 reveal">
-                <div class="glass rounded-2xl p-6">
-                    <div class="text-3xl md:text-4xl font-bold text-white mb-1 stat-counter" data-target="60">0</div>
-                    <div class="text-sm text-gray-400">% Lower TCO</div>
-                </div>
-                <div class="glass rounded-2xl p-6">
-                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">24/7</div>
-                    <div class="text-sm text-gray-400">Local Support</div>
-                </div>
-                <div class="glass rounded-2xl p-6">
-                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">100%</div>
-                    <div class="text-sm text-gray-400">Data Sovereignty</div>
-                </div>
-                <div class="glass rounded-2xl p-6">
-                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">0</div>
-                    <div class="text-sm text-gray-400">Vendor Lock-in</div>
-                </div>
-            </div>
+      <nav class="nav-links" aria-label="Main">
+        <a href="index.html" class="nav-link is-active">Home</a>
+        <a href="solutions.html" class="nav-link">Solutions</a>
+
+        <div class="dropdown">
+          <a href="products.html" class="nav-link">Products</a>
+          <div class="dropdown__menu">
+            <a href="products.html#cloud">ZStack Cloud</a>
+            <a href="products.html#zsphere">ZStack ZSphere</a>
+            <a href="products.html#storage">Storage Solutions</a>
+            <a href="products.html#zaku">ZStack ZAKU</a>
+            <a href="products.html#vinchin">Vinchin Backup</a>
+          </div>
         </div>
-        
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-            <i data-lucide="chevron-down" class="w-6 h-6 text-gray-500"></i>
+
+        <a href="about.html" class="nav-link">About</a>
+
+        <div class="dropdown">
+          <a href="partners.html" class="nav-link">Partners</a>
+          <div class="dropdown__menu">
+            <a href="partners.html#our-partners">Our Partners</a>
+            <a href="partners.html#become-partner">Become a Partner</a>
+          </div>
         </div>
+
+        <a href="contact.html" class="nav-link">Contact</a>
+
+        <div class="dropdown">
+          <a href="resources.html" class="nav-link">Resources</a>
+          <div class="dropdown__menu">
+            <a href="resources.html#documentation">Product Documentation</a>
+            <a href="resources.html#hardware">Hardware Compatibility</a>
+            <a href="resources.html#guestos">Guest OS Support List</a>
+          </div>
+        </div>
+      </nav>
+
+      <a href="contact.html" class="btn btn--primary btn--sm nav-cta">Request a Demo</a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="solutions.html">Solutions</a>
+      <span class="grp">Products</span>
+      <a href="products.html">All Products</a>
+      <a href="products.html#cloud">ZStack Cloud</a>
+      <a href="products.html#zsphere">ZStack ZSphere</a>
+      <a href="products.html#storage">Storage Solutions</a>
+      <a href="products.html#zaku">ZStack ZAKU</a>
+      <a href="products.html#vinchin">Vinchin Backup</a>
+      <span class="grp">Company</span>
+      <a href="about.html">About</a>
+      <a href="partners.html">Partners</a>
+      <a href="contact.html">Contact</a>
+      <span class="grp">Resources</span>
+      <a href="resources.html">All Resources</a>
+      <a href="resources.html#documentation">Product Documentation</a>
+      <a href="resources.html#hardware">Hardware Compatibility</a>
+      <a href="resources.html#guestos">Guest OS Support List</a>
+      <a href="contact.html" style="color: var(--accent)">Request a Demo</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="hero bg-grid">
+      <div class="wrap hero__inner">
+        <div class="rv is-in">
+          <span class="eyebrow">Software-Defined Infrastructure</span>
+          <h1 class="display display--hero">
+            Build your private cloud with enterprise software
+          </h1>
+          <p class="lede">
+            MetaVirt helps organizations modernize infrastructure with virtualization, cloud,
+            storage, backup, and Kubernetes platforms — running on your hardware, under your control.
+          </p>
+
+          <div class="hero__cta">
+            <a href="contact.html" class="btn btn--primary">
+              Talk to an Expert
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="products.html" class="btn btn--ghost">Explore Products</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat"><b>60<em>%</em></b><span>Lower TCO</span></div>
+            <div class="stat"><b>24/7</b><span>Local Support</span></div>
+            <div class="stat"><b>100<em>%</em></b><span>Data Sovereignty</span></div>
+            <div class="stat"><b>0</b><span>Vendor Lock-in</span></div>
+          </div>
+        </div>
+
+        <div class="rack-scene" aria-hidden="true">
+          <div class="rack" id="rack">
+            <div class="rack__face rack__top"></div>
+            <div class="rack__face rack__left"></div>
+            <div class="rack__face rack__right"></div>
+            <div class="rack__face rack__front">
+
+              <div class="rack__label"><span>METAVIRT&nbsp;&middot;&nbsp;CORE-01</span><span class="rack__leds"><i class="rack__led"></i><i class="rack__led"></i><i class="rack__led rack__led--idle"></i></span></div>
+
+              <div class="rack__unit rack__unit--switch rack__unit--d1">
+                <div class="rack__ear rack__ear--l"></div>
+                <div class="rack__ear rack__ear--r"></div>
+                <div class="rack__meta"><b>SWITCH-01</b><span class="rack__unit-leds"><span class="on"></span><span class="on"></span><span class="pw"></span></span></div>
+                <div class="rack__ports">
+                  <i class="hot"></i><i class="hot"></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                </div>
+              </div>
+
+              <div class="rack__vent"></div>
+
+              <div class="rack__unit rack__unit--server rack__unit--d2">
+                <div class="rack__ear rack__ear--l"></div>
+                <div class="rack__ear rack__ear--r"></div>
+                <div class="rack__meta"><b>CLOUD-01</b><span class="rack__unit-leds"><span class="on"></span><span class="on"></span><span class="pw"></span></span></div>
+                <div class="rack__drives">
+                  <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i>
+                </div>
+              </div>
+
+              <div class="rack__unit rack__unit--server rack__unit--d1">
+                <div class="rack__ear rack__ear--l"></div>
+                <div class="rack__ear rack__ear--r"></div>
+                <div class="rack__meta"><b>ZSPHERE-01</b><span class="rack__unit-leds"><span class="on"></span><span></span><span class="pw"></span></span></div>
+                <div class="rack__drives">
+                  <i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i>
+                </div>
+              </div>
+
+              <div class="rack__vent"></div>
+
+              <div class="rack__unit rack__unit--storage rack__unit--d3">
+                <div class="rack__ear rack__ear--l"></div>
+                <div class="rack__ear rack__ear--r"></div>
+                <div class="rack__meta"><b>STOR-01</b><span class="rack__unit-leds"><span class="on"></span><span class="on"></span><span class="on"></span><span class="pw"></span></span></div>
+                <div class="rack__drives">
+                  <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+                </div>
+              </div>
+
+              <div class="rack__vent"></div>
+
+              <div class="rack__pdu">
+                <span class="rack__btn on"></span>
+                <span class="rack__leds"><i class="rack__led"></i><i class="rack__led"></i></span>
+                <span class="rack__btn"></span>
+              </div>
+
+            </div>
+          </div>
+          <div class="rack__shadow"></div>
+          <div class="rack-tag">Your hardware&nbsp;&middot;&nbsp;Our control plane</div>
+        </div>
+      </div>
     </section>
 
-    <!-- Product Screenshots Section -->
-    <section class="relative py-16 bg-black">
-        <div class="max-w-[95%] xl:max-w-[90%] mx-auto px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-8 items-start">
-                <!-- Screenshot 1: Cloud Platform -->
-                <div class="relative group reveal">
-                    <div class="relative rounded-xl overflow-hidden border border-white/10 bg-gray-900 shadow-2xl">
-                        <div class="relative aspect-[21/9] overflow-hidden bg-gray-950">
-                            <img src="cloud.png" alt="Cloud Platform Monitoring Dashboard" 
-                                class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500">
-                        </div>
-                    </div>
-                    <div class="mt-4 text-center">
-                        <h3 class="text-lg font-semibold text-white mb-1">Cloud Platform Monitoring Dashboard</h3>
-                    </div>
-                </div>
-
-                <!-- Screenshot 2: Virtualization Platform -->
-                <div class="relative group reveal" style="transition-delay: 100ms;">
-                    <div class="relative rounded-xl overflow-hidden border border-white/10 bg-gray-900 shadow-2xl">
-                        <div class="relative aspect-[21/9] overflow-hidden bg-gray-950">
-                            <img src="zsphere.png" alt="Virtualization Platform Monitoring Dashboard" 
-                                class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500">
-                        </div>
-                    </div>
-                    <div class="mt-4 text-center">
-                        <h3 class="text-lg font-semibold text-white mb-1">Virtualization Platform Monitoring Dashboard</h3>
-                    </div>
-                </div>
+    <!-- ================= PLATFORM MONITORING ================= -->
+    <section class="section--tight">
+      <div class="wrap">
+        <div class="grid-2">
+          <figure class="console rv">
+            <div class="console__bar">
+              <span class="console__dots"><i></i><i></i><i></i></span>
+              <span class="console__url">dashboard / cloud-platform</span>
             </div>
+            <img src="cloud.png" alt="Cloud Platform Monitoring Dashboard">
+            <figcaption>Cloud Platform Monitoring Dashboard</figcaption>
+          </figure>
+          <figure class="console rv">
+            <div class="console__bar">
+              <span class="console__dots"><i></i><i></i><i></i></span>
+              <span class="console__url">dashboard / virtualization-platform</span>
+            </div>
+            <img src="zsphere.png" alt="Virtualization Platform Monitoring Dashboard">
+            <figcaption>Virtualization Platform Monitoring Dashboard</figcaption>
+          </figure>
         </div>
+      </div>
     </section>
 
-    <!-- Why MetaVirt -->
-    <section class="relative py-24 bg-black">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-                    Why <span class="gradient-text">MetaVirt</span>
-                </h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">
-                    Enterprise-grade infrastructure software designed for Bangladeshi organizations
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="feature-card glass rounded-2xl p-8 reveal">
-                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center mb-6">
-                        <i data-lucide="code" class="w-7 h-7 text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Software-First Model</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        We provide the platform software. You choose your preferred x86 hardware. No forced proprietary appliances.
-                    </p>
-                </div>
-                
-                <div class="feature-card glass rounded-2xl p-8 reveal" style="transition-delay: 100ms;">
-                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center mb-6">
-                        <i data-lucide="server" class="w-7 h-7 text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Hardware Freedom</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Deploy on Dell, HPE, Lenovo, Supermicro, or any approved x86 server. Full flexibility in hardware procurement.
-                    </p>
-                </div>
-                
-                <div class="feature-card glass rounded-2xl p-8 reveal" style="transition-delay: 200ms;">
-                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center mb-6">
-                        <i data-lucide="trending-down" class="w-7 h-7 text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Lower TCO</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Reduce infrastructure costs by 60-70% compared to proprietary virtualization and cloud stacks.
-                    </p>
-                </div>
-                
-                <div class="feature-card glass rounded-2xl p-8 reveal">
-                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center mb-6">
-                        <i data-lucide="map-pin" class="w-7 h-7 text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Bangladesh-Based</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Local support team with deep understanding of enterprise requirements and compliance landscape.
-                    </p>
-                </div>
-                
-                <div class="feature-card glass rounded-2xl p-8 reveal" style="transition-delay: 100ms;">
-                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center mb-6">
-                        <i data-lucide="shield" class="w-7 h-7 text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Data Sovereignty</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Keep all data within Bangladesh borders. Full compliance with local regulations and data protection requirements.
-                    </p>
-                </div>
-                
-                <div class="feature-card glass rounded-2xl p-8 reveal" style="transition-delay: 200ms;">
-                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center mb-6">
-                        <i data-lucide="settings" class="w-7 h-7 text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Expert Deployment</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        End-to-end solution design, deployment, integration, and ongoing support from certified engineers.
-                    </p>
-                </div>
-            </div>
+    <!-- ================= WHY METAVIRT ================= -->
+    <section class="section">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="eyebrow">Why MetaVirt</span>
+          <h2 class="display display--sec">World-class infrastructure platforms, delivered for Bangladeshi organizations</h2>
         </div>
+
+        <div class="feature-grid feature-grid--tight">
+          <article class="feature feature--compact rv">
+            <div class="feature__num">01</div>
+            <h3>Platform Expertise</h3>
+            <p>We deliver proven global platforms. You choose your preferred x86 hardware — no forced proprietary appliances.</p>
+          </article>
+          <article class="feature feature--compact rv">
+            <div class="feature__num">02</div>
+            <h3>Hardware Freedom</h3>
+            <p>Deploy on Dell, HPE, Lenovo, Supermicro, or any approved x86 server.</p>
+          </article>
+          <article class="feature feature--compact rv">
+            <div class="feature__num">03</div>
+            <h3>Lower TCO</h3>
+            <p>Reduce infrastructure costs by 60–70% versus proprietary stacks.</p>
+          </article>
+          <article class="feature feature--compact rv">
+            <div class="feature__num">04</div>
+            <h3>Bangladesh-Based</h3>
+            <p>Local team with deep understanding of enterprise and compliance needs.</p>
+          </article>
+          <article class="feature feature--compact rv">
+            <div class="feature__num">05</div>
+            <h3>Data Sovereignty</h3>
+            <p>Keep all data within Bangladesh borders, fully compliant with local regulation.</p>
+          </article>
+          <article class="feature feature--compact rv">
+            <div class="feature__num">06</div>
+            <h3>Expert Deployment</h3>
+            <p>End-to-end design, deployment, integration, and support from certified engineers.</p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- Key Products Overview -->
-    <section class="relative py-24 bg-gradient-to-b from-black to-gray-950">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-                    Core <span class="gradient-text">Products</span>
-                </h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">
-                    Complete software stack for modern infrastructure
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="product-card rounded-3xl p-8 reveal group cursor-pointer" onclick="window.location.href='products.html#cloud'">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="cloud" class="w-8 h-8 text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">ZStack Cloud</h3>
-                    <p class="text-red-400 text-sm mb-4">Private Cloud Platform</p>
-                    <p class="text-gray-400 text-sm mb-6">
-                        Complete private cloud infrastructure with self-service portal, multi-tenancy, and resource orchestration.
-                    </p>
-                    <span class="inline-flex items-center gap-2 text-red-500 font-semibold text-sm group-hover:gap-3 transition-all">
-                        Learn more <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </span>
-                </div>
-                
-                <div class="product-card rounded-3xl p-8 reveal group cursor-pointer" onclick="window.location.href='products.html#zsphere'" style="transition-delay: 100ms;">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="cpu" class="w-8 h-8 text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">ZStack ZSphere</h3>
-                    <p class="text-red-400 text-sm mb-4">Virtualization Platform</p>
-                    <p class="text-gray-400 text-sm mb-6">
-                        Enterprise hypervisor with live migration, high availability, and centralized VM management.
-                    </p>
-                    <span class="inline-flex items-center gap-2 text-red-500 font-semibold text-sm group-hover:gap-3 transition-all">
-                        Learn more <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </span>
-                </div>
-                
-                <div class="product-card rounded-3xl p-8 reveal group cursor-pointer" onclick="window.location.href='products.html#storage'" style="transition-delay: 200ms;">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="hard-drive" class="w-8 h-8 text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">Storage Portfolio</h3>
-                    <p class="text-red-400 text-sm mb-4">ZStone / ZCE / ZBS</p>
-                    <p class="text-gray-400 text-sm mb-6">
-                        Distributed, unified, and high-performance storage solutions with SAN/NAS integration.
-                    </p>
-                    <span class="inline-flex items-center gap-2 text-red-500 font-semibold text-sm group-hover:gap-3 transition-all">
-                        Learn more <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </span>
-                </div>
-                
-                <div class="product-card rounded-3xl p-8 reveal group cursor-pointer" onclick="window.location.href='products.html#zaku'" style="transition-delay: 300ms;">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="container" class="w-8 h-8 text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">ZStack ZAKU</h3>
-                    <p class="text-red-400 text-sm mb-4">Kubernetes Platform</p>
-                    <p class="text-gray-400 text-sm mb-6">
-                        Managed Kubernetes service for cloud-native applications with auto-scaling and integrated networking.
-                    </p>
-                    <span class="inline-flex items-center gap-2 text-red-500 font-semibold text-sm group-hover:gap-3 transition-all">
-                        Learn more <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </span>
-                </div>
-                
-                <div class="product-card rounded-3xl p-8 reveal group cursor-pointer" onclick="window.location.href='products.html#vinchin'" style="transition-delay: 400ms;">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">Vinchin Backup</h3>
-                    <p class="text-red-400 text-sm mb-4">Backup & DR</p>
-                    <p class="text-gray-400 text-sm mb-6">
-                        Enterprise backup and disaster recovery with agentless VM backup, instant recovery, and ransomware resilience.
-                    </p>
-                    <span class="inline-flex items-center gap-2 text-red-500 font-semibold text-sm group-hover:gap-3 transition-all">
-                        Learn more <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </span>
-                </div>
-                
-                <div class="glass rounded-3xl p-8 reveal flex flex-col justify-center items-center text-center" style="transition-delay: 500ms;">
-                    <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-6">
-                        <i data-lucide="plus" class="w-8 h-8 text-gray-400"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Need Guidance?</h3>
-                    <p class="text-gray-400 text-sm mb-6">
-                        Our solution architects can help design the right infrastructure for your needs.
-                    </p>
-                    <a href="contact.html" class="text-red-500 font-semibold text-sm hover:text-red-400 transition-colors">
-                        Request Consultation
-                    </a>
-                </div>
-            </div>
+    <!-- ================= CORE PRODUCTS ================= -->
+    <section class="section section--soft">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="eyebrow">Core Products</span>
+          <h2 class="display display--sec">Complete software stack for modern infrastructure</h2>
         </div>
+
+        <div class="prod-list">
+          <div class="prod-row rv">
+            <h3><a href="products.html#cloud">ZStack Cloud</a></h3>
+            <span class="prod-row__tag">Private Cloud Platform</span>
+            <p>Complete private cloud infrastructure with self-service portal, multi-tenancy, and resource orchestration.</p>
+            <a class="prod-row__link" href="products.html#cloud">
+              Learn more
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="prod-row rv">
+            <h3><a href="products.html#zsphere">ZStack ZSphere</a></h3>
+            <span class="prod-row__tag">Virtualization Platform</span>
+            <p>Enterprise hypervisor with live migration, high availability, and centralized VM management.</p>
+            <a class="prod-row__link" href="products.html#zsphere">
+              Learn more
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="prod-row rv">
+            <h3><a href="products.html#storage">Storage Portfolio</a></h3>
+            <span class="prod-row__tag">ZStone / ZCE / ZBS</span>
+            <p>Distributed, unified, and high-performance storage solutions with SAN/NAS integration.</p>
+            <a class="prod-row__link" href="products.html#storage">
+              Learn more
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="prod-row rv">
+            <h3><a href="products.html#zaku">ZStack ZAKU</a></h3>
+            <span class="prod-row__tag">Kubernetes Platform</span>
+            <p>Managed Kubernetes service for cloud-native applications with auto-scaling and integrated networking.</p>
+            <a class="prod-row__link" href="products.html#zaku">
+              Learn more
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="prod-row rv">
+            <h3><a href="products.html#vinchin">Vinchin Backup</a></h3>
+            <span class="prod-row__tag">Backup &amp; DR</span>
+            <p>Enterprise backup and disaster recovery with agentless VM backup, instant recovery, and ransomware resilience.</p>
+            <a class="prod-row__link" href="products.html#vinchin">
+              Learn more
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="panel panel--accent rv" style="margin-top: 44px">
+          <span class="kicker">Need Guidance?</span>
+          <div class="grid-2" style="align-items: center">
+            <p style="color: var(--muted); margin: 0">Our solution architects can help design the right infrastructure for your needs.</p>
+            <a href="contact.html" class="btn btn--ghost btn--sm" style="justify-self: start">
+              Request Consultation
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Solution Highlights -->
-    <section class="relative py-24 bg-black">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-                    Solution <span class="gradient-text">Highlights</span>
-                </h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <a href="solutions.html" class="solution-card glass rounded-2xl p-8 reveal block">
-                    <div class="w-12 h-12 rounded-lg bg-red-600/20 flex items-center justify-center mb-4">
-                        <i data-lucide="cloud" class="w-6 h-6 text-red-500"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Private Cloud</h3>
-                    <p class="text-gray-400 text-sm">AWS-like cloud experience on your infrastructure</p>
-                </a>
-                
-                <a href="solutions.html" class="solution-card glass rounded-2xl p-8 reveal block" style="transition-delay: 100ms;">
-                    <div class="w-12 h-12 rounded-lg bg-red-600/20 flex items-center justify-center mb-4">
-                        <i data-lucide="refresh-cw" class="w-6 h-6 text-red-500"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Virtualization Modernization</h3>
-                    <p class="text-gray-400 text-sm">Upgrade from legacy virtualization platforms</p>
-                </a>
-                
-                <a href="solutions.html" class="solution-card glass rounded-2xl p-8 reveal block" style="transition-delay: 200ms;">
-                    <div class="w-12 h-12 rounded-lg bg-red-600/20 flex items-center justify-center mb-4">
-                        <i data-lucide="hard-drive" class="w-6 h-6 text-red-500"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Storage Modernization</h3>
-                    <p class="text-gray-400 text-sm">Software-defined storage with unified protocols</p>
-                </a>
-                
-                <a href="solutions.html" class="solution-card glass rounded-2xl p-8 reveal block">
-                    <div class="w-12 h-12 rounded-lg bg-red-600/20 flex items-center justify-center mb-4">
-                        <i data-lucide="shield-check" class="w-6 h-6 text-red-500"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Backup & Disaster Recovery</h3>
-                    <p class="text-gray-400 text-sm">Comprehensive data protection with Vinchin</p>
-                </a>
-                
-                <a href="solutions.html" class="solution-card glass rounded-2xl p-8 reveal block" style="transition-delay: 100ms;">
-                    <div class="w-12 h-12 rounded-lg bg-red-600/20 flex items-center justify-center mb-4">
-                        <i data-lucide="container" class="w-6 h-6 text-red-500"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Kubernetes Platform</h3>
-                    <p class="text-gray-400 text-sm">Cloud-native container orchestration</p>
-                </a>
-                
-                <a href="solutions.html" class="solution-card glass rounded-2xl p-8 reveal block" style="transition-delay: 200ms;">
-                    <div class="w-12 h-12 rounded-lg bg-red-600/20 flex items-center justify-center mb-4">
-                        <i data-lucide="log-out" class="w-6 h-6 text-red-500"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">VMware Exit</h3>
-                    <p class="text-gray-400 text-sm">Cost-effective alternative to expensive licenses</p>
-                </a>
-            </div>
+    <!-- ================= SOLUTION HIGHLIGHTS ================= -->
+    <section class="section">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="eyebrow">Solution Highlights</span>
+          <h2 class="display display--sec">Six ways we modernize infrastructure</h2>
         </div>
+
+        <div class="sol-grid">
+          <a href="solutions.html" class="sol-card rv"><h3>Private Cloud</h3><p>AWS-like cloud experience on your infrastructure</p></a>
+          <a href="solutions.html" class="sol-card rv"><h3>Virtualization Modernization</h3><p>Upgrade from legacy virtualization platforms</p></a>
+          <a href="solutions.html" class="sol-card rv"><h3>Storage Modernization</h3><p>Software-defined storage with unified protocols</p></a>
+          <a href="solutions.html" class="sol-card rv"><h3>Backup &amp; DR</h3><p>Comprehensive data protection with Vinchin</p></a>
+          <a href="solutions.html" class="sol-card rv"><h3>Kubernetes Platform</h3><p>Cloud-native container orchestration</p></a>
+          <a href="solutions.html" class="sol-card rv"><h3>VMware Exit</h3><p>Cost-effective alternative to expensive licenses</p></a>
+        </div>
+        <p class="rv" style="color: var(--muted); margin-top: 28px; max-width: 60ch">
+          <a href="solutions.html" style="color: var(--accent)">Explore the solutions&nbsp;→</a>
+        </p>
+      </div>
     </section>
 
-    <!-- Cost Advantage -->
-    <section class="relative py-24 bg-gradient-to-b from-gray-950 to-black">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="reveal">
-                    <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">
-                        Reduce TCO by <span class="gradient-text">60-70%</span>
-                    </h2>
-                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                        Eliminate expensive proprietary licenses and hardware lock-in. MetaVirt's software-only model delivers enterprise capabilities at a fraction of the cost.
-                    </p>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-red-500"></i>
-                            <span class="text-gray-300">No per-socket licensing fees</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-red-500"></i>
-                            <span class="text-gray-300">Use commodity x86 hardware</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-red-500"></i>
-                            <span class="text-gray-300">Free migration tools included</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-red-500"></i>
-                            <span class="text-gray-300">Lower ongoing support costs</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="reveal">
-                    <div class="glass-red rounded-3xl p-8 border border-red-500/20">
-                        <h3 class="text-xl font-bold text-white mb-6">5-Year TCO Comparison</h3>
-                        
-                        <div class="space-y-6">
-                            <div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-gray-400">Traditional Proprietary Stack</span>
-                                    <span class="text-2xl font-bold text-gray-500 line-through">$850K</span>
-                                </div>
-                                <div class="h-4 bg-gray-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gray-600 w-full"></div>
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-white font-semibold">MetaVirt Solution</span>
-                                    <span class="text-2xl font-bold text-red-500">$280K</span>
-                                </div>
-                                <div class="h-4 bg-gray-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-red-600 to-red-800 w-[33%]"></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-8 p-4 bg-black/30 rounded-xl">
-                            <div class="flex items-center gap-3 text-green-400 mb-2">
-                                <i data-lucide="trending-down" class="w-5 h-5"></i>
-                                <span class="font-semibold">Total Savings: $570K (67%)</span>
-                            </div>
-                            <p class="text-sm text-gray-400">
-                                Based on 50-server deployment with storage, backup, and support over 5 years.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Bangladesh Organizations Choose MetaVirt -->
-    <section class="relative py-24 bg-black">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-                    Trusted by <span class="gradient-text">Bangladesh</span> Organizations
-                </h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="glass rounded-2xl p-6 text-center reveal">
-                    <div class="w-14 h-14 rounded-full bg-red-600/20 flex items-center justify-center mx-auto mb-4">
-                        <i data-lucide="map-pin" class="w-7 h-7 text-red-500"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Local Presence</h3>
-                    <p class="text-gray-400 text-sm">Dhaka-based team with deep understanding of local market needs</p>
-                </div>
-                
-                <div class="glass rounded-2xl p-6 text-center reveal" style="transition-delay: 100ms;">
-                    <div class="w-14 h-14 rounded-full bg-red-600/20 flex items-center justify-center mx-auto mb-4">
-                        <i data-lucide="headphones" class="w-7 h-7 text-red-500"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Local Support</h3>
-                    <p class="text-gray-400 text-sm">24/7 Bengali and English support with faster response times</p>
-                </div>
-                
-                <div class="glass rounded-2xl p-6 text-center reveal" style="transition-delay: 200ms;">
-                    <div class="w-14 h-14 rounded-full bg-red-600/20 flex items-center justify-center mx-auto mb-4">
-                        <i data-lucide="file-check" class="w-7 h-7 text-red-500"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Compliance Ready</h3>
-                    <p class="text-gray-400 text-sm">Understanding of Bangladesh regulatory and data protection requirements</p>
-                </div>
-                
-                <div class="glass rounded-2xl p-6 text-center reveal" style="transition-delay: 300ms;">
-                    <div class="w-14 h-14 rounded-full bg-red-600/20 flex items-center justify-center mx-auto mb-4">
-                        <i data-lucide="zap" class="w-7 h-7 text-red-500"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Faster Response</h3>
-                    <p class="text-gray-400 text-sm">On-site support available with local accountability</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="relative py-24 bg-gradient-to-b from-black to-gray-950">
-        <div class="max-w-5xl mx-auto px-6 lg:px-8">
-            <div class="glass rounded-3xl p-8 md:p-12 reveal border border-white/10">
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <div class="flex-shrink-0">
-                        <div class="w-20 h-20 rounded-full bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center">
-                            <i data-lucide="quote" class="w-10 h-10 text-white"></i>
-                        </div>
-                    </div>
-                    <div class="flex-1 text-center md:text-left">
-                        <p class="text-xl md:text-2xl text-gray-300 italic leading-relaxed mb-6">
-                            "MetaVirt enabled us to build a private cloud on our existing Dell servers, reducing infrastructure costs by 65% while maintaining enterprise-grade performance. Their local support team understands our compliance requirements perfectly."
-                        </p>
-                        <div>
-                            <div class="text-white font-semibold">Chief Technology Officer</div>
-                            <div class="text-red-500 text-sm">Leading Financial Institution, Dhaka</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Trust Badges -->
-            <div class="mt-16 flex flex-wrap justify-center gap-8 opacity-50 reveal">
-                <div class="glass rounded-xl px-8 py-4">
-                    <span class="text-gray-400 font-semibold">BTRC Licensed</span>
-                </div>
-                <div class="glass rounded-xl px-8 py-4">
-                    <span class="text-gray-400 font-semibold">ISO 27001</span>
-                </div>
-                <div class="glass rounded-xl px-8 py-4">
-                    <span class="text-gray-400 font-semibold">ISO 9001</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="relative py-32 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-t from-red-900/30 via-black to-black"></div>
-        <div class="absolute inset-0 bg-gradient-radial"></div>
-        
-        <div class="relative max-w-4xl mx-auto px-6 lg:px-8 text-center reveal">
-            <h2 class="font-display text-4xl md:text-6xl font-bold text-white mb-6">
-                Ready to <span class="gradient-text">Modernize</span> Your Infrastructure?
-            </h2>
-            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-                Schedule a consultation with our solution architects to design your private cloud infrastructure.
+    <!-- ================= COST ADVANTAGE ================= -->
+    <section class="section section--soft">
+      <div class="wrap">
+        <div class="grid-2">
+          <div class="rv">
+            <span class="eyebrow">Cost Advantage</span>
+            <h2 class="display display--sec" style="margin: 18px 0 20px">Reduce TCO by 60–70%</h2>
+            <p class="lede" style="margin-bottom: 28px">
+              Eliminate expensive proprietary licenses and hardware lock-in. MetaVirt's local delivery model brings
+              enterprise-grade platforms to Bangladesh at a fraction of the cost.
             </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="contact.html" class="btn-primary px-10 py-4 rounded-full text-lg font-semibold text-white inline-flex items-center justify-center gap-2 animate-pulse-glow">
-                    Book a Demo
-                    <i data-lucide="calendar" class="w-5 h-5"></i>
-                </a>
-                <a href="contact.html" class="px-10 py-4 rounded-full text-lg font-semibold text-white border border-white/20 hover:bg-white/5 transition-all inline-flex items-center justify-center gap-2">
-                    Get Pricing
-                </a>
+            <ul class="ticks">
+              <li>No per-socket licensing fees</li>
+              <li>Use commodity x86 hardware</li>
+              <li>Free migration tools included</li>
+              <li>Lower ongoing support costs</li>
+            </ul>
+          </div>
+
+          <div class="panel rv">
+            <span class="kicker">5-Year TCO Comparison &middot; 50 servers</span>
+            <div class="tco">
+              <div class="tco__row">
+                <div class="tco__top"><span>Traditional Proprietary Stack</span><b class="dim">$850K</b></div>
+                <div class="tco__track"><div class="tco__fill tco__fill--full"></div></div>
+              </div>
+              <div class="tco__row">
+                <div class="tco__top"><span>MetaVirt Solution</span><b>$280K</b></div>
+                <div class="tco__track"><div class="tco__fill tco__fill--mv"></div></div>
+              </div>
             </div>
+            <hr class="rule" style="margin: 30px 0 22px">
+            <p style="color: var(--accent); font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.04em; margin-bottom: 8px">
+              Total savings: $570K (67%)
+            </p>
+            <p style="color: var(--dim); font-size: 0.85rem; margin: 0">
+              Based on 50-server deployment with storage, backup, and support over 5 years.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="relative bg-black border-t border-white/10 pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
-                <div class="col-span-2">
-                    <div class="flex items-center gap-3 mb-6">
-                        <img src="last.png" alt="MetaVirt" class="h-10 w-auto">
-                    </div>
-                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-6">
-                        MetaVirt Information Technologies Private Limited delivers software-defined infrastructure solutions for Bangladeshi enterprises.
-                    </p>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center text-gray-400 hover:text-white hover:border-red-500 transition-all" aria-label="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center text-gray-400 hover:text-white hover:border-red-500 transition-all" aria-label="Facebook">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center text-gray-400 hover:text-white hover:border-red-500 transition-all" aria-label="YouTube">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Products</h4>
-                    <ul class="space-y-3 text-sm text-gray-400">
-                        <li><a href="products.html#cloud" class="hover:text-red-500 transition-colors">ZStack Cloud</a></li>
-                        <li><a href="products.html#zsphere" class="hover:text-red-500 transition-colors">ZStack ZSphere</a></li>
-                        <li><a href="products.html#storage" class="hover:text-red-500 transition-colors">Storage Solutions</a></li>
-                        <li><a href="products.html#zaku" class="hover:text-red-500 transition-colors">ZStack ZAKU</a></li>
-                        <li><a href="products.html#vinchin" class="hover:text-red-500 transition-colors">Vinchin Backup</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Company</h4>
-                    <ul class="space-y-3 text-sm text-gray-400">
-                        <li><a href="about.html" class="hover:text-red-500 transition-colors">About Us</a></li>
-                        <li><a href="solutions.html" class="hover:text-red-500 transition-colors">Solutions</a></li>
-                        <li><a href="contact.html" class="hover:text-red-500 transition-colors">Contact</a></li>
-                        <li><a href="#" class="hover:text-red-500 transition-colors">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-500 text-sm">
-                    © 2026 MetaVirt Information Technologies Private Limited. All rights reserved.
-                </p>
-                <div class="flex items-center gap-6 text-sm text-gray-500">
-                    <span class="flex items-center gap-2">
-                        <i data-lucide="map-pin" class="w-4 h-4"></i>
-                        Dhaka, Bangladesh
-                    </span>
-                </div>
-            </div>
+    <!-- ================= BANGLADESH ================= -->
+    <section class="section">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="eyebrow">Trusted by Bangladesh Organizations</span>
+          <h2 class="display display--sec">Local delivery of world-class platforms</h2>
         </div>
-    </footer>
 
-    <script>
-        lucide.createIcons();
-        
-        // SMART NAVBAR - Transparent to Blur on Scroll
-        const navbar = document.getElementById('navbar');
-        
-        window.addEventListener('scroll', () => {
-            const scrollY = window.pageYOffset;
-            
-            if (scrollY > 100) {
-                navbar.classList.add('scrolled-more');
-                navbar.classList.remove('scrolled');
-            } else if (scrollY > 50) {
-                navbar.classList.add('scrolled');
-                navbar.classList.remove('scrolled-more');
-            } else {
-                navbar.classList.remove('scrolled', 'scrolled-more');
-            }
+        <div class="feature-grid">
+          <article class="feature rv">
+            <div class="feature__num">L01</div>
+            <h3>Local Presence</h3>
+            <p>Dhaka-based team with deep understanding of local market needs.</p>
+          </article>
+          <article class="feature rv">
+            <div class="feature__num">L02</div>
+            <h3>Local Support</h3>
+            <p>24/7 Bengali and English support with faster response times.</p>
+          </article>
+          <article class="feature rv">
+            <div class="feature__num">L03</div>
+            <h3>Compliance Ready</h3>
+            <p>Understanding of Bangladesh regulatory and data protection requirements.</p>
+          </article>
+          <article class="feature rv">
+            <div class="feature__num">L04</div>
+            <h3>Faster Response</h3>
+            <p>On-site support available with local accountability.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TESTIMONIAL ================= -->
+    <section class="section section--soft">
+      <div class="wrap">
+        <div class="grid-2" style="align-items: end">
+          <figure class="quote rv">
+            <blockquote>
+              MetaVirt enabled us to build a private cloud on our existing Dell servers, reducing infrastructure
+              costs by 65% while maintaining enterprise-grade performance. Their local support team understands our
+              compliance requirements perfectly.
+            </blockquote>
+            <figcaption>
+              <b>Chief Technology Officer</b>
+              <span>Leading Financial Institution, Dhaka</span>
+            </figcaption>
+          </figure>
+
+          <div class="rv" style="display: flex; gap: 14px; flex-wrap: wrap">
+            <span class="chip chip--accent">BTRC Licensed</span>
+            <span class="chip chip--accent">ISO 27001</span>
+            <span class="chip chip--accent">ISO 9001</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FINAL CTA ================= -->
+    <section class="section bg-grid" style="text-align: center">
+      <div class="wrap">
+        <div class="rv">
+          <span class="eyebrow" style="justify-content: center">Next Step</span>
+          <h2 class="display display--sec" style="margin: 18px auto 16px; max-width: 18ch">
+            Ready to modernize your infrastructure?
+          </h2>
+          <p class="lede" style="margin: 0 auto 32px">
+            Schedule a consultation with our solution architects to design your private cloud infrastructure.
+          </p>
+          <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap">
+            <a href="contact.html" class="btn btn--primary">
+              Book a Demo
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            </a>
+            <a href="contact.html" class="btn btn--ghost">Get Pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <img src="last.png" alt="MetaVirt">
+          <p>MetaVirt Information Technologies Private Limited delivers software-defined infrastructure solutions for Bangladeshi enterprises.</p>
+          <div class="foot-social">
+            <a href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="foot-col">
+          <h5>Products</h5>
+          <ul>
+            <li><a href="products.html#cloud">ZStack Cloud</a></li>
+            <li><a href="products.html#zsphere">ZStack ZSphere</a></li>
+            <li><a href="products.html#storage">Storage Solutions</a></li>
+            <li><a href="products.html#zaku">ZStack ZAKU</a></li>
+            <li><a href="products.html#vinchin">Vinchin Backup</a></li>
+          </ul>
+        </div>
+
+        <div class="foot-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="solutions.html">Solutions</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="foot-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="contact.html">Request a Demo</a></li>
+            <li><a href="contact.html">Schedule Consultation</a></li>
+            <li><a href="mailto:info@metavirt.io">info@metavirt.io</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foot-base">
+        <span>© 2026 MetaVirt Information Technologies Private Limited. All rights reserved.</span>
+        <span class="live"><i></i> Dhaka, Bangladesh</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    // 3D rack — front-facing by default, drag to rotate, hover parallax
+    (function () {
+      var rack = document.getElementById('rack');
+      if (!rack) return;
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var scene = rack.parentElement;
+      var BASE_X = -16, BASE_Y = -8; // near-front elevation
+      var rx = BASE_X, ry = BASE_Y;
+      var targetX = BASE_X, targetY = BASE_Y;
+      var dragging = false, moved = false, lastX = 0, lastY = 0, t0 = 0;
+      var raf = null;
+
+      function apply() {
+        rack.style.transform = 'rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
+      }
+
+      // ease back toward resting angle when not dragging
+      function idle() {
+        var damp = 0.14;
+        rx += (targetX - rx) * damp;
+        ry += (targetY - ry) * damp;
+        apply();
+        if (Math.abs(targetX - rx) < 0.05 && Math.abs(targetY - ry) < 0.05) { rx = targetX; ry = targetY; apply(); return; }
+        raf = requestAnimationFrame(idle);
+      }
+
+      function start(e) {
+        var p = e.touches ? e.touches[0] : e;
+        dragging = true; moved = false; lastX = p.clientX; lastY = p.clientY; t0 = Date.now();
+        if (raf) cancelAnimationFrame(raf);
+        if (e.cancelable) e.preventDefault();
+      }
+      function move(e) {
+        if (!dragging) return;
+        var p = e.touches ? e.touches[0] : e;
+        var dx = p.clientX - lastX;
+        var dy = p.clientY - lastY;
+        if (Math.abs(dx) + Math.abs(dy) > 2) moved = true;
+        ry += dx * 0.6;
+        rx -= dy * 0.5;
+        rx = Math.max(-60, Math.min(25, rx));
+        ry = Math.max(-70, Math.min(70, ry));
+        lastX = p.clientX; lastY = p.clientY;
+        apply();
+      }
+      function end() {
+        if (!dragging) return;
+        dragging = false;
+        // flick: keep velocity by nudging target in the direction of travel
+        if (moved) {
+          targetX = rx; targetY = ry;
+        } else {
+          targetX = BASE_X; targetY = BASE_Y;
+        }
+        if (!reduced) { raf = requestAnimationFrame(idle); }
+      }
+
+      scene.addEventListener('mousedown', start);
+      window.addEventListener('mousemove', move);
+      window.addEventListener('mouseup', end);
+      scene.addEventListener('touchstart', start, { passive: false });
+      window.addEventListener('touchmove', move, { passive: false });
+      window.addEventListener('touchend', end);
+
+      // hover parallax (only when not dragging)
+      if (!reduced && !('ontouchstart' in window)) {
+        scene.addEventListener('mousemove', function (e) {
+          if (dragging) return;
+          var r = scene.getBoundingClientRect();
+          var dx = (e.clientX - r.left) / r.width - 0.5;
+          var dy = (e.clientY - r.top) / r.height - 0.5;
+          targetX = BASE_X - dy * 8;
+          targetY = BASE_Y + dx * 10;
+          if (!raf) raf = requestAnimationFrame(idle);
         });
-        
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        scene.addEventListener('mouseleave', function () {
+          targetX = BASE_X; targetY = BASE_Y;
+          if (!raf) raf = requestAnimationFrame(idle);
         });
-        
-        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
-            });
-        }, observerOptions);
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-        
-        // Animated counters
-        const counters = document.querySelectorAll('.stat-counter');
-        counters.forEach(counter => {
-            const target = parseInt(counter.getAttribute('data-target'));
-            const duration = 2000;
-            const step = target / (duration / 16);
-            let current = 0;
-            
-            const updateCounter = () => {
-                current += step;
-                if (current < target) {
-                    counter.textContent = Math.floor(current);
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    counter.textContent = target;
-                }
-            };
-            
-            const counterObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        updateCounter();
-                        counterObserver.unobserve(entry.target);
-                    }
-                });
-            });
-            counterObserver.observe(counter);
-        });
-    </script>
+      }
+
+      apply();
+    })();
+  </script>
 </body>
 </html>
